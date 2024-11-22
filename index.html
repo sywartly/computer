@@ -198,7 +198,7 @@
             </div>
             <div class="form-row">
                 <div class="form-item">
-                    <label for="widthSemi"><span class="required-star">*</span>总宽度 (mm):</label>
+                    <label for="widthSemi"><span class="required-star">*</span>有效宽度 (mm):</label>
                     <input type="number" id="widthSemi" required placeholder="请输入宽度" oninput="calculateSemi()">
                 </div>
                 <div class="form-item">
@@ -2281,7 +2281,7 @@
 
         const area = (width * length) / 1000; // 转换为平方米
         const { a1, a2 } = getThicknessByCode(code); // 获取 filmThickness 和 glueThickness
-        const tapeWeightPerSquareMeter = width * a1 * 0.907 + (width-20) * 1.05 * a2;
+        const tapeWeightPerSquareMeter = (width+20) * a1 * 0.907 + width * 1.05 * a2;
 
         const totalTapeWeight = (tapeWeightPerSquareMeter * length) / 1000000; // 单位 kg
 
