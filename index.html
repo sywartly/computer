@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>永冠新材胶带体积重量计算</title>
+    <title>水胶OPP体积重量计算</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
@@ -157,7 +157,7 @@
             border-radius: 5px;
             background-color: #ffffff; /* 输入框背景色 */
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            max-width: 800px;
+            max-width: 798px;
         }
         .sidebar ul li a {
             display: flex;
@@ -243,7 +243,7 @@
             border-radius: 5px;
             box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            max-width: 820px; /* 根据需要调整最大宽度 */
+            max-width: 818px; /* 根据需要调整最大宽度 */
         }
 
 
@@ -259,8 +259,6 @@
             padding: 10px;
             cursor: pointer;
         }
-
-
         .dropdown-options li:hover {
             background-color: #f0f0f0;
         }
@@ -277,7 +275,7 @@
             <ul style="list-style-type: none; padding-left: 20px; margin: 0;">
                 <li>
                     <a href="#" onclick="toggleForms('semiFinished')" style="color: #cef; padding: 5px;">
-                        <i class="fas fa-cogs" style="margin-right: 8px;"></i> 半成品
+                        <i class="fas fa-tools" style="margin-right: 8px;"></i> 半成品
                     </a>
                 </li>
                 <li>
@@ -655,6 +653,293 @@
             }
         });
     });
+    const productDataGg=[
+        {model: "EHA065", filmThickness: "/", totalThickness: 0},
+        {model: "EHP200", filmThickness: 280, totalThickness: 200},
+        {model: "UCA111", filmThickness: 132, totalThickness: 139.6},
+        {model: "UCAb11", filmThickness: 134, totalThickness: 142},
+        {model: "UCA302", filmThickness: 54.46, totalThickness: 52},
+        {model: "UCA302G", filmThickness: 54.46, totalThickness: 52},
+        {model: "UCA312", filmThickness: 54.46, totalThickness: 52},
+        {model: "UCA312G", filmThickness: 54.46, totalThickness: 52},
+        {model: "UCA401", filmThickness: 44.64, totalThickness: 47.25},
+        {model: "UCA501", filmThickness: 375.5, totalThickness: 319.5},
+        {model: "UCA911", filmThickness: 48.89, totalThickness: 51.5},
+        {model: "UCBb10", filmThickness: 135.5, totalThickness: 143.5},
+        {model: "UCA101", filmThickness: 135, totalThickness: 139.6},
+        {model: "UCAb01", filmThickness: 137, totalThickness: 142},
+        {model: "UCB601", filmThickness: 194.5, totalThickness: 186.5},
+        {model: "UCB602", filmThickness: 214.5, totalThickness: 210.5},
+        {model: "UCB610", filmThickness: 184.5, totalThickness: 174.5},
+        {model: "UCB611", filmThickness: 194.5, totalThickness: 186.5},
+        {model: "UCB612", filmThickness: 214.5, totalThickness: 210.5},
+        {model: "USA111", filmThickness: 149, totalThickness: 153.6},
+        {model: "UCB701", filmThickness: 208.5, totalThickness: 196.5},
+        {model: "UCB711", filmThickness: 208.5, totalThickness: 196.5},
+        {model: "USA222", filmThickness: 167, totalThickness: 174},
+        {model: "UCBa01", filmThickness: 118.5, totalThickness: 314.5},
+        {model: "UCBb00", filmThickness: 138.5, totalThickness: 143.5},
+        {model: "UCBb01", filmThickness: 163.5, totalThickness: 159.5},
+        {model: "UCB620", filmThickness: 164.5, totalThickness: 168.5},
+        {model: "UCBb11", filmThickness: 163.5, totalThickness: 159.5},
+        {model: "UHA003", filmThickness: 205, totalThickness: 195},
+        {model: "UHA004", filmThickness: 208, totalThickness: 198},
+        {model: "UHA005", filmThickness: 225, totalThickness: 219},
+        {model: "UHA006", filmThickness: 228, totalThickness: 222},
+        {model: "UHA015", filmThickness: 225, totalThickness: 219},
+        {model: "UHA016", filmThickness: 228, totalThickness: 222},
+        {model: "UHA103", filmThickness: 212, totalThickness: 200},
+        {model: "UHA113", filmThickness: 212, totalThickness: 200},
+        {model: "UHA205", filmThickness: 239, totalThickness: 229},
+        {model: "UHA206", filmThickness: 242, totalThickness: 232},
+        {model: "UHA407", filmThickness: 283, totalThickness: 271},
+        {model: "UHAc05", filmThickness: 253, totalThickness: 239},
+        {model: "UHAc06", filmThickness: 256, totalThickness: 242},
+        {model: "UHAd07", filmThickness: 290, totalThickness: 276},
+        {model: "UHB001", filmThickness: 227.5, totalThickness: 221.5},
+        {model: "UHB002", filmThickness: 224.5, totalThickness: 218.5},
+        {model: "UHB101-B", filmThickness: 211.5, totalThickness: 199.5},
+        {model: "UHB111-B", filmThickness: 211.5, totalThickness: 199.5},
+        {model: "UHB201-B", filmThickness: 218.5, totalThickness: 204.5},
+        {model: "UHB203", filmThickness: 238.5, totalThickness: 228.5},
+        {model: "UHB204", filmThickness: 241.5, totalThickness: 231.5},
+        {model: "UHB211-B", filmThickness: 218.5, totalThickness: 204.5},
+        {model: "UHB301G", filmThickness: 232.5, totalThickness: 216.5},
+        {model: "UHB303-B", filmThickness: 245.5, totalThickness: 233.5},
+        {model: "UHB303G", filmThickness: 252.5, totalThickness: 240.5},
+        {model: "UHB313", filmThickness: 245.5, totalThickness: 233.5},
+        {model: "UHB313-B", filmThickness: 245.5, totalThickness: 233.5},
+        {model: "UHB403", filmThickness: 262.5, totalThickness: 246.5},
+        {model: "UHB5055G", filmThickness: 296.5, totalThickness: 280.5},
+        {model: "UHB505G", filmThickness: 296.5, totalThickness: 280.5},
+        {model: "UHB515", filmThickness: 296.5, totalThickness: 280.5},
+        {model: "UHBc03", filmThickness: 252.5, totalThickness: 238.5},
+        {model: "UHBc03-B", filmThickness: 252.5, totalThickness: 238.5},
+        {model: "UHBc13-B", filmThickness: 252.5, totalThickness: 238.5},
+        {model: "UHBd03", filmThickness: 269.5, totalThickness: 251.5},
+        {model: "UHBd05", filmThickness: 289.5, totalThickness: 275.5},
+        {model: "UHBd05-B", filmThickness: 289.5, totalThickness: 275.5},
+        {model: "UHBd15-B", filmThickness: 289.5, totalThickness: 275.5},
+        {model: "UHC001", filmThickness: 224.5, totalThickness: 218.5},
+        {model: "UHC002", filmThickness: 222.5, totalThickness: 216.5},
+        {model: "UHC004", filmThickness: 202.5, totalThickness: 192.5},
+        {model: "UHC004G", filmThickness: 205.5, totalThickness: 195.5},
+        {model: "UHC203", filmThickness: 236.5, totalThickness: 226.5},
+        {model: "UHC204", filmThickness: 238.5, totalThickness: 228.5},
+        {model: "UHC5055G", filmThickness: 296.5, totalThickness: 280.5},
+        {model: "UHC505G", filmThickness: 296.5, totalThickness: 280.5},
+        {model: "UHE203", filmThickness: 238.5, totalThickness: 228.5},
+        {model: "UHE204", filmThickness: 240.5, totalThickness: 230.5},
+        {model: "UHE303", filmThickness: 245.5, totalThickness: 233.5},
+        {model: "UHE313", filmThickness: 245.5, totalThickness: 233.5},
+        {model: "UHE503", filmThickness: 274.5, totalThickness: 254.5},
+        {model: "UHE504", filmThickness: 276.5, totalThickness: 256.5},
+        {model: "UHE505", filmThickness: 294.5, totalThickness: 278.5},
+        {model: "UHE505G", filmThickness: 295.5, totalThickness: 279.5},
+        {model: "UHE506", filmThickness: 296.5, totalThickness: 280.5},
+        {model: "UHE506G", filmThickness: 295.5, totalThickness: 279.5},
+        {model: "UHF203", filmThickness: 241.5, totalThickness: 231.5},
+        {model: "UHF204", filmThickness: 244.5, totalThickness: 234.5},
+        {model: "UHF303", filmThickness: 248.5, totalThickness: 236.5},
+        {model: "UHF313", filmThickness: 248.5, totalThickness: 236.5},
+        {model: "UHF503", filmThickness: 279.5, totalThickness: 259.5},
+        {model: "UHF504", filmThickness: 281.5, totalThickness: 261.5},
+        {model: "UHF505", filmThickness: 299.5, totalThickness: 283.5},
+        {model: "UHF506", filmThickness: 301.5, totalThickness: 285.5},
+        {model: "UHF506G", filmThickness: 299.5, totalThickness: 283.5},
+        {model: "UHF506-Z", filmThickness: 301.5, totalThickness: 285.5},
+        {model: "UHF506-ZG", filmThickness: 301.5, totalThickness: 285.5},
+        {model: "UHF508G", filmThickness: 303.5, totalThickness: 287.5},
+        {model: "UHF518G", filmThickness: 303.5, totalThickness: 287.5},
+        {model: "UHF721", filmThickness: 0, totalThickness: 0},
+        {model: "UP810", filmThickness: 85.2, totalThickness: 148.2},
+        {model: "UP820", filmThickness: 94.2, totalThickness: 157.2},
+        {model: "UPA001", filmThickness: 77.6, totalThickness: 104.3},
+        {model: "UPA111", filmThickness: 77.6, totalThickness: 104.3},
+        {model: "UPA211", filmThickness: 85.85, totalThickness: 119.3},
+        {model: "UPA311", filmThickness: 85.85, totalThickness: 119.3},
+        {model: "UPA411", filmThickness: 94, totalThickness: 134.2},
+        {model: "UPA421", filmThickness: 103, totalThickness: 143.2},
+        {model: "UPA521", filmThickness: 108.5, totalThickness: 153.2},
+        {model: "UPA711", filmThickness: 105, totalThickness: 154.2},
+        {model: "UPA721", filmThickness: 114, totalThickness: 163.2},
+        {model: "UPA811", filmThickness: 119.4, totalThickness: 177.6},
+        {model: "UCB722", filmThickness: 192.5, totalThickness: 196.5},
+        {model: "UCB111", filmThickness: 132, totalThickness: 139.6},
+        {model: "UHF508-Q", filmThickness: 448.5, totalThickness: 392.5},
+        {model: "UHB208", filmThickness: 419, totalThickness: 359},
+        {model: "UHF505-Q", filmThickness: 448.5, totalThickness: 392.5},
+        {model: "UCB701G", filmThickness: 205.5, totalThickness: 205},
+        {model: "UCB711G", filmThickness: 202.5, totalThickness: 205},
+        {model: "UHF206", filmThickness: 439, totalThickness: 383}
+    ]
+    const productDataCrm=[
+        {
+        model: "PR020", newModel: "PR2010", originalCode: "", totalThickness: 20
+        },
+        {
+            model: "PR015", newModel: "PR1510", originalCode: "", totalThickness: 15
+        },
+        {
+            model: "PR018", newModel: "PR1810", originalCode: "", totalThickness: 18
+        },
+        {
+            model: "PR025", newModel: "PR2510", originalCode: "", totalThickness: 25
+        },
+        {
+            model: "PR017", newModel: "PR1710", originalCode: "", totalThickness: 17
+        },
+        {
+            model: "PR030", newModel: "PR3010", originalCode: "", totalThickness: 30
+        },
+        {
+            model: "PR023", newModel: "PR2310", originalCode: "", totalThickness: 23
+        },
+        {
+            model: "PR012", newModel: "PR1210", originalCode: "", totalThickness: 12
+        },
+        {
+            model: "PR021", newModel: "PR2110", originalCode: "", totalThickness: 21
+        },
+        {
+            model: "PR022", newModel: "PR2210", originalCode: "", totalThickness: 22
+        },
+        {
+            model: "PR011", newModel: "PR1110", originalCode: "", totalThickness: 11
+        },
+        {
+            model: "PR019", newModel: "PR1910", originalCode: "ZRM-19", totalThickness: 19
+        },
+        {
+            model: "PR1780", newModel: "PR1780", originalCode: "", totalThickness: 17
+        },
+        {
+            model: "PR1141", newModel: "PR1141", originalCode: "", totalThickness: 11
+        },
+        {
+            model: "PR1770", newModel: "PR1770", originalCode: "", totalThickness: 17
+        },
+        {
+            model: "PR1460", newModel: "PR1460", originalCode: "", totalThickness: 14
+        },
+        {
+            model: "PR1560", newModel: "PR1560", originalCode: "", totalThickness: 15
+        },
+        {
+            model: "PR21a0", newModel: "PR21a0", originalCode: "", totalThickness: 21
+        },
+        {
+            model: "PR3141", newModel: "PR3141", originalCode: "", totalThickness: 31
+        },
+        {
+            model: "PR2051", newModel: "PR2051", originalCode: "", totalThickness: 20
+        },
+        {
+            model: "PR1551", newModel: "PR1551", originalCode: "", totalThickness: 15
+        },
+        {
+            model: "PR023-3", newModel: "PR2311", originalCode: "", totalThickness: 23
+        },
+        {
+            model: "PR020-3", newModel: "PR2011", originalCode: "", totalThickness: 20
+        },
+        {
+            model: "PR019-6", newModel: "PR1931", originalCode: "", totalThickness: 19
+        },
+        {
+            model: "PR018-3", newModel: "PR1811", originalCode: "", totalThickness: 18
+        },
+        {
+            model: "PR021-6", newModel: "PR2131", originalCode: "", totalThickness: 21
+        },
+        {
+            model: "PR024-6", newModel: "PR2431", originalCode: "", totalThickness: 24
+        },
+        {
+            model: "PR019-5", newModel: "PR1920", originalCode: "", totalThickness: 19
+        },
+        {
+            model: "PR021-5", newModel: "PR2120", originalCode: "", totalThickness: 21
+        },
+        {
+            model: "PR017-5", newModel: "PR1720", originalCode: "", totalThickness: 17
+        },
+        {
+            model: "PR017-6", newModel: "PR1731", originalCode: "", totalThickness: 17
+        },
+        {
+            model: "PR012-5", newModel: "PR1220", originalCode: "", totalThickness: 12
+        },
+        {
+            model: "PR020-6", newModel: "PR2030", originalCode: "", totalThickness: 20
+        },
+        {
+            model: "PR016-6", newModel: "PR1630", originalCode: "", totalThickness: 16
+        },
+        {
+            model: "PR016-5", newModel: "PR1620", originalCode: "", totalThickness: 16
+        },
+        {
+            model: "PR012-4", newModel: "PR1240", originalCode: "", totalThickness: 12
+        },
+        {
+            model: "PR017-3", newModel: "PR1711", originalCode: "", totalThickness: 17
+        },
+        {
+            model: "PR030-3", newModel: "PR3011", originalCode: "", totalThickness: 30
+        },
+        {
+            model: "PR023-4", newModel: "PR2341", originalCode: "", totalThickness: 23
+        },
+        {
+            model: "PR028-3", newModel: "PR2811", originalCode: "", totalThickness: 28
+        },
+        {
+            model: "PR018-4", newModel: "PR1841", originalCode: "", totalThickness: 18
+        },
+        {
+            model: "PR035-3", newModel: "PR3510", originalCode: "", totalThickness: 35
+        },
+        {
+            model: "PR017-2", newModel: "PR1701", originalCode: "", totalThickness: 17
+        },
+        {
+            model: "PR013-5", newModel: "PR1320", originalCode: "", totalThickness: 13
+        },
+        {
+            model: "PR015-5", newModel: "PR1520", originalCode: "", totalThickness: 15
+        },
+        {
+            model: "PR020-5", newModel: "PR2020", originalCode: "", totalThickness: 20
+        },
+        {
+            model: "PR025-2", newModel: "PR2501", originalCode: "", totalThickness: 25
+        },
+        {
+            model: "PR017-4", newModel: "PR1741", originalCode: "", totalThickness: 17
+        },
+        {
+            model: "PR025-3", newModel: "PR2511", originalCode: "", totalThickness: 25
+        },
+        {
+            model: "PR020-2", newModel: "PR2001", originalCode: "", totalThickness: 20
+        },
+        {
+            model: "R-PR025", newModel: "R-PR025", originalCode: "", totalThickness: 25
+        },
+        {
+            model: "PR040-2", newModel: "PR4001", originalCode: "", totalThickness: 40
+        },
+        {
+            model: "PR020-4", newModel: "PR2041", originalCode: "", totalThickness: 20
+        },
+        {
+            model: "PR015-3", newModel: "PR1511", originalCode: "", totalThickness: 15
+        },
+        {
+            model: "PR015-4", newModel: "PR1541", originalCode: "", totalThickness: 15
+        }
+    ];
     const productDataPvc=[
         { model: "9811", newModel: "9811",originalCode: "EXA10-Z", filmThickness: 15.5, totalThickness: 100 },
         { model: "EK1301", newModel: "EK1301", originalCode: "", filmThickness: null, totalThickness: 130 },
@@ -856,7 +1141,7 @@
         { model: "EDJ120-zs16", newModel: "ED1294", originalCode: "EA12-Z", filmThickness: 16, totalThickness: 120 },
         { model: "EJC150-zs18", newModel: "EJ1590", originalCode: "QWJC15-F", filmThickness: 16, totalThickness: 150 },
         { model: "EJC170-zs18", newModel: "EJ1790", originalCode: "QWJC18-F", filmThickness: 16, totalThickness: 170 }
-    ]
+    ];
     const codeThicknessMap = {
         "BC4290": 42,
         "BC4513": 45,
@@ -2311,7 +2596,7 @@
         },
         { model: "DPB300-25", newModel: "/", originalCode: "", totalThickness: 284.64
         }
-    ]
+    ];
     const productDataBuJi=[
         { model: "DBB130", newModel: "DP1302", originalCode: "D113", totalThickness: 130 },
         { model: "DCB130", newModel: "DA1330", originalCode: "D313", totalThickness: 130 },
@@ -2443,7 +2728,7 @@
         { model: "DPB300-3", newModel: "DD3011", originalCode: "D430-2", totalThickness: 300 },
         { model: "DNB300-3", newModel: "DD3010", originalCode: "D430", totalThickness: 300 },
         { model: "DPB300-25", newModel: "/", originalCode: "/", totalThickness: 300 }
-    ]
+    ];
     const productData = [
         { model: "BC4290", newModel: "BC4290", originalCode: "", totalThickness: 42, filmThickness: 24, glueThickness: 18 },
         { model: "BC4513", newModel: "BC4513", originalCode: "", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
@@ -3053,8 +3338,52 @@
                 };
                 optionsList.appendChild(li);
             });
+            const additionalCrmCodes = productDataCrm.flatMap(item => {
+                return [
+                    { text: item.model, code: item.model },
+                    { text: item.newModel, code: item.newModel },
+                    { text: item.originalCode, code: item.originalCode }
+                ];
+            }).filter(({ text }) => text.toLowerCase().includes(filter));
 
-            optionsList.style.display = matchedCodes.length > 0 || additionalCodes.length > 0 || additionalPvcCodes.length > 0 ? 'block' : 'none'; // 显示或隐藏下拉选项
+            additionalCrmCodes.forEach(({ text, code }) => {
+                const li = document.createElement('li');
+                li.textContent = text;
+                li.onclick = () => {
+                    input.value = code; // 设置输入框的值
+                    updateThickness(formType); // 更新厚度
+                    optionsList.style.display = 'none'; // 隐藏下拉选项
+                    if (formType === 'semiFinished') {
+                        calculateSemi();
+                    } else {
+                        calculateFinished();
+                    }
+                };
+                optionsList.appendChild(li);
+            });
+            const additionalGgCodes = productDataGg.flatMap(item => {
+                return [
+                    { text: item.model, code: item.model },
+                ];
+            }).filter(({ text }) => text.toLowerCase().includes(filter));
+
+            additionalGgCodes.forEach(({ text, code }) => {
+                const li = document.createElement('li');
+                li.textContent = text;
+                li.onclick = () => {
+                    input.value = code; // 设置输入框的值
+                    updateThickness(formType); // 更新厚度
+                    optionsList.style.display = 'none'; // 隐藏下拉选项
+                    if (formType === 'semiFinished') {
+                        calculateSemi();
+                    } else {
+                        calculateFinished();
+                    }
+                };
+                optionsList.appendChild(li);
+            });
+
+            optionsList.style.display = matchedCodes.length > 0 || additionalCodes.length > 0 || additionalPvcCodes.length > 0 ||additionalCrmCodes.length > 0 || additionalGgCodes.length > 0 ? 'block' : 'none'; // 显示或隐藏下拉选项
         } else {
             optionsList.style.display = 'none'; // 输入框为空时隐藏下拉选项
         }
@@ -3185,6 +3514,12 @@
         const matchedProductPvc = productDataPvc.find(item =>
             item.model === code || item.newModel === code || item.originalCode === code
         );
+        const matchedProductCrm = productDataCrm.find(item =>
+            item.model === code || item.newModel === code || item.originalCode === code
+        );
+        const matchedProductGg = productDataGg.find(item =>
+            item.model === code
+        );
 
         if (matchedProduct !== undefined) {
             thicknessInput.value = matchedProduct.totalThickness;
@@ -3192,6 +3527,10 @@
             thicknessInput.value = thickness;   // 更新总厚度输入框
         }else if(matchedProductPvc!== undefined){
             thicknessInput.value = matchedProductPvc.totalThickness;
+        }else if(matchedProductCrm!== undefined){
+            thicknessInput.value = matchedProductCrm.totalThickness;
+        }else if(matchedProductGg!== undefined){
+            thicknessInput.value = matchedProductGg.totalThickness;
         }
         else {
             thicknessInput.value = ''; // 无法找到对应厚度时清空
@@ -3330,7 +3669,13 @@
             item.newModel === code ||
             item.originalCode === code
         );
-        if (!thickness&&!thicknessProduct&&!foundProductPvc) {
+        const foundProductCrm = productDataCrm.find(item =>
+            item.model === code || item.newModel === code || item.originalCode === code
+        );
+        const foundProductGg = productDataGg.find(item =>
+            item.model === code
+        );
+        if (!thickness&&!thicknessProduct&&!foundProductPvc&&!foundProductCrm&&!foundProductGg) {
             document.getElementById('grossWeightSemi').textContent = '单卷净重(kg): ';
             document.getElementById('resultsSemi').textContent = '单卷毛重(kg): ';
             document.getElementById('volumeSemi').textContent = '单卷体积(m³): ';
@@ -3340,6 +3685,10 @@
             document.getElementById('tapeWeightPerSquareMeter1Semi').value = thicknessProduct.totalThickness; // 将厚度填入输入框
         }else if(foundProductPvc){
             document.getElementById('tapeWeightPerSquareMeter1Semi').value = foundProductPvc.totalThickness;
+        }else if (foundProductCrm){
+            document.getElementById('tapeWeightPerSquareMeter1Semi').value = foundProductCrm.totalThickness;
+        }else if(foundProductGg){
+            document.getElementById('tapeWeightPerSquareMeter1Semi').value = foundProductGg.totalThickness;
         } else {
         document.getElementById('tapeWeightPerSquareMeter1Semi').value = thickness;} // 将厚度填入输入框
 
