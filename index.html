@@ -22,14 +22,22 @@
         #productType {
             font-size: 16px;
             padding: 10px;
-            border: 1px solid #ccc;
             border-radius: 5px;
-            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-            transition: border-color 0.3s ease;
+            background-color: #f0f8ff; /* 添加背景色 */
+            color: #333; /* 文本颜色 */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            max-width: 450px; /* 调整最大宽度 */
         }
-
+        #productType option {
+            padding: 10px; /* 增加选项的内边距 */
+        }
+        #productType option:hover {
+            background-color: #e2e6ea; /* 悬停时背景色 */
+            color: #000; /* 悬停时文本颜色 */
+        }
         #productType:focus {
-            border-color: #66afe9;
+            border-color: #0056b3; /* 焦点时的边框颜色 */
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* 添加强调阴影效果 */
             outline: none;
         }
         .sidebar {
@@ -173,7 +181,7 @@
         }
         .form-item input:not(:placeholder-shown),
         .form-item select:not(:empty) {
-            border-color: #98e1b6; /* 浅绿色边框 */
+            border-color: #90EE90; /* 淡绿色边框 */
         }
 
         .form-item input[type="text"]:focus,
@@ -189,14 +197,12 @@
         .form-item select:hover {
             border-color: #66afe9; /* 悬停时的边框颜色 */
         }
-
         .result-container {
             margin-top: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
         .result-item {
             font-size: 16px;
             font-weight: bold;
@@ -207,8 +213,6 @@
             display: block; /* 使用块级样式 */
             min-width: 150px;
         }
-
-
         .dropdown-options {
             list-style-type: none;
             background-color: white;
@@ -270,7 +274,7 @@
     <ul style="list-style-type: none; padding-left: 0; margin: 0;">
         <li>
             <a href="#" onclick="toggleForms('semiFinished')" style="color: #cef; padding: 10px; cursor: pointer;">
-                <i class="fa fa-tape" style="margin-right: 8px;"></i>水胶OPP/布基/PVC
+                <i class="fa fa-tape" style="margin-right: 8px;"></i>水胶OPP/布基/PVC/缠绕膜/广告耗材
             </a>
             <ul style="list-style-type: none; padding-left: 20px; margin: 0;">
                 <li>
@@ -3591,8 +3595,6 @@
         const fabricSemiFinishedForm = document.getElementById('fabricSemiFinishedForm'); // 布基半成品
         const fabricFinishedForm = document.getElementById('fabricFinishedForm');
         const navbar = document.getElementById('navbar');
-
-
         // 判断当前选择的包装方式
         const selectedValue = productTypeSelect.value;
 
@@ -3617,7 +3619,6 @@
             totalBoxesContainer.style.display = 'block';
             fabricSemiFinishedForm.style.display = 'none';
             fabricFinishedForm.style.display = 'none';
-
             navbar.textContent = '当前计算模式: 成品计算(水胶OPP，布基，PVC)';
         } else if (activeForm === 'fabricSemiFinished' || (activeForm === '' && selectedValue === 'fabricSemiFinished')) {
             semiFinishedForm.style.display = 'none';
@@ -3661,9 +3662,13 @@
             productTypeLabel.style.display = 'block';
             productTypeSelect.style.display = 'block';
         }
+        if(selectedValue === 'nakedRandomCRM'){
+            navbar.textContent = '当前计算模式: 成品计算（缠绕膜）';
+        }
         if (selectedValue === 'nakedRandomGG') {
             packingInfo.style.display = 'none'; // 隐藏长宽高方向卷数
             heightInfo.style.display = 'none';
+            navbar.textContent = '当前计算模式: 成品计算（广告耗材）';
         }
         if (selectedValue === 'nakedRandomPVC') {
             semiFinishedForm.style.display = 'none';
@@ -3745,7 +3750,7 @@
         else {
             // 如果没有找到相应的代码，可以使用默认值或继续原计算逻辑
             tapeWeightPerSquareMeter = (width+20) * a1 * 0.907 + width * 1.05 * a2;
-            totalTapeWeight = (tapeWeightPerSquareMeter * length) / 1000000;}
+            totalTapeWeight = (tapeWeightPerSquareMeter * length) / 1000000;}//净重
         const weights = {
             "38_2.5": 0.267857142857143,
             "38_3.0": 0.28393274041134,
