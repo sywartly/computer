@@ -8,65 +8,70 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #eaeaea; /* 改为柔和的背景色 */
+            background-color: #eaeaea;
             margin: 0;
             display: flex;
             height: 100vh;
             overflow: hidden;
         }
+
         .required-star {
             color: red;
             font-size: 18px;
             margin-right: 5px;
         }
+
         #productType {
             font-size: 16px;
             padding: 10px;
-            border-radius: 5px; /* 角度圆润 */
-            background-color: #f8f9fa; /* 选择框的背景色设为浅灰色 */
-            color: #333; /* 文本颜色 */
-            border: 2px solid #ced4da; /* 边框颜色 */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加轻微的阴影 */
-            transition: border-color 0.3s ease, box-shadow 0.3s ease; /* 添加过渡效果 */
+            border-radius: 5px;
+            background-color: #f8f9fa;
+            color: #333;
+            border: 2px solid #ced4da;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
+
         #productType option {
-            padding: 10px; /* 增加选项的内边距 */
+            padding: 10px;
         }
+
         #productType option:hover {
-            background-color: #e2e6ea; /* 悬停时背景色 */
-            color: #000; /* 悬停时文本颜色 */
+            background-color: #e2e6ea;
+            color: #000;
         }
+
         #productType:focus {
-            border-color: #0056b3; /* 焦点时的边框颜色 */
-            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* 添加强调阴影效果 */
+            border-color: #0056b3;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
             outline: none;
         }
+
         .sidebar {
-            width: 230px; /* 适当扩宽 */
-            background-color: #123456; /* 侧边栏背景颜色 */
-            padding: 10px; /* 内边距 */
-            overflow-y: auto; /* 允许滚动 */
-            height: 100vh; /* 高度占满 */
-            color: #fff; /* 字体颜色 */
+            width: 230px;
+            background-color: #123456;
+            padding: 10px;
+            overflow-y: auto;
+            height: 100vh;
+            color: #fff;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
         }
 
         .sidebar h2 {
-            font-size: 18px; /* 增加字体大小 */
-            border-bottom: 2px solid #fff; /* 加粗下边框 */
-            padding-bottom: 15px; /* 增加底部填充 */
-            margin-bottom: 20px; /* 增加外边距 */
-            text-align: center; /* 中心对齐 */
-            color: white; /* 确保文字颜色为白色 */
+            font-size: 18px;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: white;
         }
 
-
         .sidebar ul {
-            padding: 0; /* 去掉内边距 */
+            padding: 0;
         }
 
         .sidebar ul li {
-            position: relative; /* 使子菜单相对于父菜单定位 */
+            position: relative;
         }
 
         .sidebar ul li a {
@@ -78,32 +83,34 @@
             text-decoration: none;
             transition: background-color 0.3s;
             border-radius: 5px;
-            font-size: 16px; /* 一级菜单字体大小 */
-            font-weight: bold; /* 一级菜单加粗 */
+            font-size: 16px;
+            font-weight: bold;
         }
 
         .sidebar ul li a:hover {
-            background-color: #007bff; /* 悬停时背景色 */
-            color: #fff; /* 悬停时文本颜色 */
+            background-color: #007bff;
+            color: #fff;
         }
+
         .sidebar ul li ul {
-            display: none; /* 默认隐藏子菜单 */
-            padding-left: 20px; /* 为子菜单添加缩进 */
-            background-color: #0d2f45; /* 二级菜单背景颜色 */
-            border-left: 4px solid #007bff; /* 左侧边框 */
+            display: none;
+            padding-left: 20px;
+            background-color: #0d2f45;
+            border-left: 4px solid #007bff;
         }
 
         .sidebar ul ul {
-            display: none; /* 默认隐藏子菜单 */
-            padding-left: 20px; /* 为子菜单添加缩进 */
+            display: none;
+            padding-left: 20px;
         }
 
         .sidebar ul li:hover > a {
-            background-color: #0056b3; /* 一级菜单悬停时颜色 */
-            color: #fff; /* 一级菜单悬停时文本颜色 */
+            background-color: #0056b3;
+            color: #fff;
         }
+
         details {
-            cursor: pointer; /* 鼠标悬停时的指针效果 */
+            cursor: pointer;
         }
 
         .content {
@@ -111,16 +118,15 @@
             padding: 0;
             background-color: #fff;
             overflow: hidden;
-            overflow-y: auto; /* 只有内容溢出时显示垂直滚动条 */
+            overflow-y: auto;
             margin-left: -5px;
         }
 
         .form-container {
-            width: 100%; /* 确保表单容器占满可用宽度 */
-            padding-left: 15px; /* 若需要，调整内边距 */
+            width: 100%;
+            padding-left: 15px;
             padding-top: 0;
-            box-shadow: none; /* 若需，去掉阴影 */
-
+            box-shadow: none;
         }
 
         .form-row {
@@ -129,82 +135,99 @@
             margin-bottom: 20px;
             gap: 0;
         }
+
         .sidebar ul li ul li a {
-            font-size: 18px; /* 二级菜单字体增大 */
-            font-weight: normal; /* 二级菜单正常字体 */
-            padding: 10px; /* 二级菜单内边距 */
-            margin-bottom: 0; /* 清除下边距 */
-            margin-left: 15px; /* 左侧缩进 */
-            color: #cef; /* 字体颜色 */
+            font-size: 18px;
+            font-weight: normal;
+            padding: 10px;
+            margin-bottom: 0;
+            margin-left: 15px;
+            color: #cef;
         }
+
         .sidebar ul li ul li a:hover {
-            background-color: #0056b3; /* 二级菜单悬停时颜色 */
-            color: #fff; /* 二级菜单悬停时文本颜色 */
+            background-color: #0056b3;
+            color: #fff;
         }
+
         .form-item {
             flex: 1;
             max-width: 100%;
-            margin-right: 0; /* 去掉右边距 */
+            margin-right: 0;
         }
+
         .form-item:last-child {
             margin-right: 0;
         }
 
-        .form-item label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 14px;
-            color: #333;
-        }
-
+        /* 统一所有输入框和选择框的样式 */
         .form-item input[type="text"],
         .form-item input[type="number"],
         .form-item select {
             width: 100%;
-            padding: 8px;
-            font-size: 14px;
-            border: 1px solid #808080; /* 增加边框厚度并改为蓝色 */
-            border-radius: 5px;
-            background-color: #ffffff; /* 输入框背景色 */
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            max-width: 798px;
+            padding: 10px 12px;
+            font-size: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            background-color: #ffffff;
+            transition: all 0.3s ease;
+            box-sizing: border-box; /* 确保padding不影响总宽度 */
+            height: 42px; /* 固定高度确保一致 */
+            line-height: 20px; /* 垂直居中文本 */
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+            color: #495057;
+            max-width: 818px; /* 统一最大宽度 */
         }
-        .sidebar ul li a {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            margin-bottom: 5px;
-            color: #cef;
-            text-decoration: none;
-            transition: background-color 0.3s;
-            border-radius: 5px;
-            font-size: 18px; /* 一级菜单字体增大 */
-            font-weight: bold; /* 一级菜单加粗 */
-        }
-        /*.form-item input:not(:placeholder-shown),*/
-        /*.form-item select:not(:empty) {*/
-        /*    border-color: #333333; !* 淡绿色边框 *!*/
-        /*}*/
 
+        /* 选择框特殊样式 */
+        .form-item select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 14px;
+            padding-right: 32px;
+            cursor: pointer;
+        }
+
+        /* 输入框焦点状态 */
         .form-item input[type="text"]:focus,
         .form-item input[type="number"]:focus,
         .form-item select:focus {
-            border-color: #0056b3; /* 焦点时的边框颜色 */
-            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* 焦点时的阴影效果 */
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
             outline: none;
         }
 
+        /* 输入框悬停状态 */
         .form-item input[type="number"]:hover,
         .form-item input[type="text"]:hover,
         .form-item select:hover {
-            border-color: #66afe9; /* 悬停时的边框颜色 */
+            border-color: #adb5bd;
         }
+
+        /* 只读输入框样式 */
+        .form-item input[readonly] {
+            background-color: #f8f9fa;
+            border-color: #e9ecef;
+            cursor: not-allowed;
+        }
+
+        .form-item label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #495057;
+            font-weight: 500;
+        }
+
         .result-container {
             margin-top: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         .result-item {
             font-size: 16px;
             font-weight: bold;
@@ -212,9 +235,10 @@
             padding: 10px;
             border-radius: 5px;
             color: red;
-            display: block; /* 使用块级样式 */
+            display: block;
             min-width: 150px;
         }
+
         .dropdown-options {
             list-style-type: none;
             background-color: white;
@@ -227,46 +251,102 @@
             z-index: 1000;
             display: none;
         }
+
         #navbar {
             display: block;
-            background: linear-gradient(90deg, #007bff, #0056b3); /* 渐变背景 */
+            background: linear-gradient(90deg, #007bff, #0056b3);
             color: white;
-            padding: 15px; /* 增加内边距 */
-            font-size: 18px; /* 增加字体大小 */
-            border-radius: 5px; /* 圆角效果 */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* 阴影效果 */
-            margin-top: 18px; /* 设置为0，紧贴上方 */
-            text-align: center; /* 中心对齐 */
-            margin-left: 14px;
-            font-weight: bold; /* 加粗 */
-            position: relative; /* 确保相对定位 */
-        }
-        .form-item select {
-            width: 100%; /* 确保选择框占满父容器的宽度 */
-            padding: 8px; /* 统一内边距 */
-            font-size: 14px; /* 统一字体大小 */
-            border: 1px solid #808080; /* 增加边框厚度并改为蓝色 */
+            padding: 15px;
+            font-size: 18px;
             border-radius: 5px;
-            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            max-width: 818px; /* 根据需要调整最大宽度 */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin-top: 18px;
+            text-align: center;
+            margin-left: 14px;
+            font-weight: bold;
+            position: relative;
         }
-
 
         #productTypeLabel {
             font-weight: bold;
-            margin-right: 10px; /* 现有的右边距 */
-            margin-left: 10px; /* 添加左边距，想要移动右侧 */
+            margin-right: 10px;
+            margin-left: 10px;
         }
+
         .navbar i {
-            margin-right: 10px; /* 图标与文本间距 */
+            margin-right: 10px;
         }
+
         .dropdown-options li {
             padding: 10px;
             cursor: pointer;
         }
+
         .dropdown-options li:hover {
             background-color: #f0f0f0;
+        }
+        /* 包装方式选择框的容器样式 */
+        .packing-type-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 0 15px; /* 与表单内容对齐 */
+        }
+
+        /* 包装方式标签样式 */
+        #productTypeLabel {
+            font-weight: bold;
+            margin-right: 15px; /* 增加右边距 */
+            font-size: 16px; /* 稍大字号 */
+            color: #333; /* 深色文字 */
+            white-space: nowrap; /* 防止换行 */
+        }
+
+        /* 包装方式选择框主体样式 */
+        #productType {
+            width: 100%;
+            max-width: 480px; /* 适当限制最大宽度 */
+            padding: 12px 16px; /* 更大的内边距 */
+            font-size: 16px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            background-color: #f8f9fa;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 16px;
+            cursor: pointer;
+            height: 48px; /* 更大的高度 */
+        }
+
+        /* 悬停状态 */
+        #productType:hover {
+            border-color: #adb5bd;
+            background-color: #fff;
+        }
+
+        /* 焦点状态 */
+        #productType:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+            outline: none;
+            background-color: #fff;
+        }
+
+        /* 选项样式 */
+        #productType option {
+            padding: 12px 15px; /* 选项内边距 */
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* 选项悬停状态 */
+        #productType option:hover {
+            background-color: #f8f9fa;
         }
     </style>
 </head>
