@@ -285,68 +285,59 @@
         .dropdown-options li:hover {
             background-color: #f0f0f0;
         }
-        /* 包装方式选择框的容器样式 */
-        .packing-type-container {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            padding: 0 15px; /* 与表单内容对齐 */
-        }
 
         /* 包装方式标签样式 */
         #productTypeLabel {
-            font-weight: bold;
-            margin-right: 15px; /* 增加右边距 */
-            font-size: 16px; /* 稍大字号 */
-            color: #333; /* 深色文字 */
-            white-space: nowrap; /* 防止换行 */
+            font-weight: 600;
+            margin-right: 15px;
+            font-size: 16px;
+            color: #495057;
+            white-space: nowrap;
         }
 
         /* 包装方式选择框主体样式 */
         #productType {
-            width: 100%;
-            max-width: 480px; /* 适当限制最大宽度 */
-            padding: 12px 16px; /* 更大的内边距 */
-            font-size: 16px;
+            flex: 1;
+            max-width: 450px;
+            padding: 12px 16px;
+            font-size: 15px;
             border: 1px solid #ced4da;
             border-radius: 6px;
-            background-color: #f8f9fa;
+            background-color: #fff;
             color: #333;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             appearance: none;
             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
             background-repeat: no-repeat;
             background-position: right 15px center;
-            background-size: 16px;
+            background-size: 14px;
             cursor: pointer;
-            height: 48px; /* 更大的高度 */
         }
 
         /* 悬停状态 */
         #productType:hover {
             border-color: #adb5bd;
-            background-color: #fff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
         }
 
         /* 焦点状态 */
         #productType:focus {
-            border-color: #80bdff;
-            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+            border-color: #4dabf7;
+            box-shadow: 0 0 0 3px rgba(77, 171, 247, 0.3);
             outline: none;
-            background-color: #fff;
         }
 
         /* 选项样式 */
         #productType option {
-            padding: 12px 15px; /* 选项内边距 */
+            padding: 10px 15px;
             background-color: #fff;
             color: #333;
         }
 
         /* 选项悬停状态 */
         #productType option:hover {
-            background-color: #f8f9fa;
+            background-color: #e9ecef;
         }
 
     </style>
