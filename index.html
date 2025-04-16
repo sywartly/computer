@@ -552,6 +552,7 @@
                 </div>
                 <div class="form-item">
                     <div id="volumeSemi" class="result-item">单卷体积(m³): </div>
+                    <div id="motherRollDiameterSemi" class="result-item">母卷直径(m): </div>
                 </div>
             </div>
         </form>
@@ -740,6 +741,7 @@
                 </div>
                 <div class="form-item">
                     <div id="volumeFinished" class="result-item">总体积(m³): </div>
+                    <div id="volumeFinishedckg" class="result-item">长宽高(cm): </div>
                 </div>
             </div>
         </form>
@@ -4070,6 +4072,7 @@
             document.getElementById('grossWeightSemi').textContent = '单卷净重(kg): ';
             document.getElementById('resultsSemi').textContent = '单卷毛重(kg): ';
             document.getElementById('volumeSemi').textContent = '单卷体积(m³): ';
+            document.getElementById('motherRollDiameterSemi').textContent = '母卷直径(m): ';
             return;
         }
         let thickness = codeThicknessMap[code];
@@ -4094,6 +4097,7 @@
             document.getElementById('grossWeightSemi').textContent = '单卷净重(kg): ';
             document.getElementById('resultsSemi').textContent = '单卷毛重(kg): ';
             document.getElementById('volumeSemi').textContent = '单卷体积(m³): ';
+            document.getElementById('motherRollDiameterSemi').textContent = '母卷直径(m): ';
             return;
         }
         if (thicknessProduct) {
@@ -4192,6 +4196,7 @@
         }
         document.getElementById('resultsSemi').textContent = `单卷毛重(kg): ${totalWeightfinally.toFixed(2)} `;
         document.getElementById('volumeSemi').textContent = `单卷体积(m³): ${(overallVolume).toFixed(2)} `;
+        document.getElementById('motherRollDiameterSemi').textContent = `母卷直径(m): ${motherRollDiameter.toFixed(2)}`;
         document.getElementById('grossWeightSemi').textContent = `单卷净重(kg): ${(totalTapeWeight).toFixed(2)} `;
     }
     function calculateCardDiameter(tapeDiameter) {
@@ -4224,6 +4229,7 @@
             document.getElementById('grossWeightFinished').textContent = '总净重(kg): ';
             document.getElementById('resultsFinished').textContent = '总毛重(kg): ';
             document.getElementById('volumeFinished').textContent = '总体积(m³): ';
+            document.getElementById('volumeFinishedckg').textContent = '长宽高(cm): ';
             return;
         }
         const thickness = codeThicknessMap[code]; // 根据输入代码获取厚度
@@ -4251,6 +4257,7 @@
             document.getElementById('grossWeightFinished').textContent = '总净重(kg): ';
             document.getElementById('resultsFinished').textContent = '总毛重(kg): ';
             document.getElementById('volumeFinished').textContent = '总体积(m³): ';
+            document.getElementById('volumeFinishedckg').textContent = '长宽高(cm): ';
             return;
         }
 // 监听内外箱输入框的变化
@@ -4600,20 +4607,24 @@
             document.getElementById('grossWeightFinished').textContent = `总净重(kg): ${totalWeight1.toFixed(2)}`;
             document.getElementById('resultsFinished').textContent = `总毛重(kg): ${ everyBoxWeight.toFixed(2)} `;
             document.getElementById('volumeFinished').textContent = `总体积(m³): ${boxSize1.toFixed(2)} `;
+            document.getElementById('volumeFinishedckg').textContent = `长宽高(cm): ${a.toFixed(2)}、${b.toFixed(2)}、${c.toFixed(2)}`;
         }
         else if(selectedProductType==='nakedRandomCRM'){
             document.getElementById('grossWeightFinished').textContent = `总净重(kg): ${totalTapeWeight1.toFixed(2)}`;
             document.getElementById('resultsFinished').textContent = `总毛重(kg): ${ everyBoxWeight.toFixed(2)} `;
             document.getElementById('volumeFinished').textContent = `总体积(m³): ${everyBoxSize.toFixed(2)} `;
+            document.getElementById('volumeFinishedckg').textContent = `长宽高(cm): ${roundedValue1.toFixed(2)}、${roundedValue2.toFixed(2)}、${roundedValue3.toFixed(2)}`;
         }
         else if(selectedProductType==='nakedRandomGG'){
             document.getElementById('grossWeightFinished').textContent = `总净重(kg): ${totalTapeWeight.toFixed(2)}`;
             document.getElementById('resultsFinished').textContent = `总毛重(kg): ${(total3+0.5).toFixed(2)} `;
-            document.getElementById('volumeFinished').textContent = `总体积(m³): ${everyBoxSize.toFixed(2)} `;}
+            document.getElementById('volumeFinished').textContent = `总体积(m³): ${everyBoxSize.toFixed(2)} `;
+            document.getElementById('volumeFinishedckg').textContent = `长宽高(cm): ${roundedValue1.toFixed(2)}、${roundedValue2.toFixed(2)}、${roundedValue3.toFixed(2)}`;}
         else {
             document.getElementById('grossWeightFinished').textContent = `总净重(kg): ${totalWeight1.toFixed(2)}`;
             document.getElementById('resultsFinished').textContent = `总毛重(kg): ${everyBoxWeight.toFixed(2)} `;
             document.getElementById('volumeFinished').textContent = `总体积(m³): ${everyBoxSize.toFixed(2)} `;
+            document.getElementById('volumeFinishedckg').textContent = `长宽高(cm): ${roundedValue1.toFixed(2)}、${roundedValue2.toFixed(2)}、${roundedValue3.toFixed(2)}`;
         }
     }
     document.addEventListener('DOMContentLoaded', toggleForms('semiFinished'));
