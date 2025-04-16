@@ -22,11 +22,12 @@
         #productType {
             font-size: 16px;
             padding: 10px;
-            border-radius: 5px;
-            background-color: #f0f8ff; /* 添加背景色 */
+            border-radius: 5px; /* 角度圆润 */
+            background-color: #f8f9fa; /* 选择框的背景色设为浅灰色 */
             color: #333; /* 文本颜色 */
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            max-width: 450px; /* 调整最大宽度 */
+            border: 2px solid #ced4da; /* 边框颜色 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加轻微的阴影 */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease; /* 添加过渡效果 */
         }
         #productType option {
             padding: 10px; /* 增加选项的内边距 */
@@ -162,7 +163,7 @@
             width: 100%;
             padding: 8px;
             font-size: 14px;
-            border: 2px solid #808080; /* 增加边框厚度并改为蓝色 */
+            border: 1px solid #808080; /* 增加边框厚度并改为蓝色 */
             border-radius: 5px;
             background-color: #ffffff; /* 输入框背景色 */
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -180,10 +181,10 @@
             font-size: 18px; /* 一级菜单字体增大 */
             font-weight: bold; /* 一级菜单加粗 */
         }
-        .form-item input:not(:placeholder-shown),
-        .form-item select:not(:empty) {
-            border-color: #90EE90; /* 淡绿色边框 */
-        }
+        /*.form-item input:not(:placeholder-shown),*/
+        /*.form-item select:not(:empty) {*/
+        /*    border-color: #333333; !* 淡绿色边框 *!*/
+        /*}*/
 
         .form-item input[type="text"]:focus,
         .form-item input[type="number"]:focus,
@@ -244,7 +245,7 @@
             width: 100%; /* 确保选择框占满父容器的宽度 */
             padding: 8px; /* 统一内边距 */
             font-size: 14px; /* 统一字体大小 */
-            border: 2px solid #808080; /* 增加边框厚度并改为蓝色 */
+            border: 1px solid #808080; /* 增加边框厚度并改为蓝色 */
             border-radius: 5px;
             box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -275,7 +276,7 @@
     <ul style="list-style-type: none; padding-left: 0; margin: 0;">
         <li>
             <a href="#" onclick="toggleForms('semiFinished')" style="color: #cef; padding: 10px; cursor: pointer;">
-                <i class="fa fa-tape" style="margin-right: 8px;"></i>水胶OPP/布基/PVC/缠绕膜/广告耗材
+                <i class="fa fa-tape" style="margin-right: 8px;"></i>OPP/布基/PVC/缠绕膜/广告耗材/美纹纸
             </a>
             <ul style="list-style-type: none; padding-left: 20px; margin: 0;">
                 <li>
@@ -303,12 +304,12 @@
             <option value="oppBag">单卷入OPP彩袋，再入外箱</option>
             <option value="夹卡">一卷入一夹卡，再入外箱</option>
             <option value="multipleBoxes">多个内箱入一个外箱</option>
-            <option value="nakedRandomPVC">裸装无规则入箱（PVC）</option>
+            <option value="nakedRandomPVC">裸装无规则入箱（PVC，美纹纸）</option>
             <option value="nakedRandomCRM">单卷入PO平口袋，再入*箱（缠绕膜）</option>
             <option value="nakedRandomGG">一卷用一珍珠棉+PET膜包裹+塑料堵头 再入纸箱(广告耗材）</option>
         </select>
     </div>
-    <!-- 布基半成品表单 -->
+    <!-- 布基半成品表单 --><!-- 不使用-->
     <div id="fabricSemiFinishedForm" class="form-container">
         <form id="calculatorFabricSemiFinished">
             <div class="form-row">
@@ -356,7 +357,7 @@
         </form>
     </div>
 
-    <!-- 布基成品表单 -->
+    <!-- 布基成品表单 --><!-- 不使用-->
     <div id="fabricFinishedForm" class="form-container">
         <form id="calculatorFabricFinished">
             <div class="form-row">
@@ -805,7 +806,7 @@
     ]
     const productDataCrm=[
         {
-        model: "PR020", newModel: "PR2010", originalCode: "", totalThickness: 20
+            model: "PR020", newModel: "PR2010", originalCode: "", totalThickness: 20
         },
         {
             model: "PR015", newModel: "PR1510", originalCode: "", totalThickness: 15
@@ -2627,6 +2628,333 @@
         { model: "DPB300-25", newModel: "/", originalCode: "", totalThickness: 284.64
         }
     ];
+    const productDataM=[
+        { model: "MBB120-zs3", mWeight: 43, consumption: 12.5, dConsumption: 2.5, sConsumption: 1.9, jWeight: 33.5, totalThickness: 120 },
+        { model: "MLA140-i08", mWeight: 45, consumption: 17, dConsumption: 2.5, sConsumption: 2.491666667, jWeight: 35, totalThickness: 140 },
+        { model: "MB502", mWeight: 45, consumption: 14.5, dConsumption: 2.5, sConsumption: 2.5, jWeight: 40, totalThickness: 140 },
+        { model: "MLA150-y10", mWeight: 45, consumption: 17, dConsumption: 0, sConsumption: 2.708333333, jWeight: 36.5, totalThickness: 150 },
+        { model: "MLA120-y08", mWeight: 40, consumption: 14.5, dConsumption: 0, sConsumption: 2.708333333, jWeight: 33.5, totalThickness: 120 },
+        { model: "MB501", mWeight: 40, consumption: 15.5, dConsumption: 0, sConsumption: 2.491666667, jWeight: 36.5, totalThickness: 130 },
+        { model: "MLA150-24", mWeight: 45, consumption: 16, dConsumption: 2.5, sConsumption: 3.7375, jWeight: 30.5, totalThickness: 150 },
+        { model: "MLA130-m4", mWeight: 42, consumption: 15, dConsumption: 0, sConsumption: 3.7375, jWeight: 30.5, totalThickness: 130 },
+        { model: "MLA150-zx2", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.25, jWeight: 35.5, totalThickness: 150 },
+        { model: "MBA130-zs8", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.954166667, jWeight: 28, totalThickness: 130 },
+        { model: "MAA130-zs12", mWeight: 43, consumption: 15, dConsumption: 0, sConsumption: 3.25, jWeight: 27, totalThickness: 130 },
+        { model: "MAA120-zr5", mWeight: 39, consumption: 14.5, dConsumption: 0, sConsumption: 3.7375, jWeight: 24, totalThickness: 120 },
+        { model: "MLC140-zm4", mWeight: 42, consumption: 16, dConsumption: 2.5, sConsumption: 2, jWeight: 43.5, totalThickness: 140 },
+        { model: "MBA120-3", mWeight: 40, consumption: 15, dConsumption: 0, sConsumption: 3.954166667, jWeight: 25, totalThickness: 120 },
+        { model: "MBA110", mWeight: 40, consumption: 15, dConsumption: 0, sConsumption: 3.954166667, jWeight: 25, totalThickness: 110 },
+        { model: "MBA130", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.954166667, jWeight: 26, totalThickness: 130 },
+        { model: "MBA120", mWeight: 40, consumption: 15, dConsumption: 0, sConsumption: 3.954166667, jWeight: 25, totalThickness: 120 },
+        { model: "MBC110-d", mWeight: 40, consumption: 15, dConsumption: 0, sConsumption: 0.115, jWeight: 31.5, totalThickness: 110 },
+        { model: "MBA120-zt10", mWeight: 40, consumption: 15, dConsumption: 0, sConsumption: 3.954166667, jWeight: 30, totalThickness: 120 },
+        { model: "MBB100", mWeight: 40, consumption: 15, dConsumption: 0, sConsumption: 2.25, jWeight: 23, totalThickness: 100 },
+        { model: "MLC120", mWeight: 40, consumption: 15, dConsumption: 2.5, sConsumption: 2.7, jWeight: 41.5, totalThickness: 120 },
+        { model: "MAA100", mWeight: 38, consumption: 12.5, dConsumption: 2.5, sConsumption: 3.25, jWeight: 21, totalThickness: 100 },
+        { model: "MLC130-h", mWeight: 42, consumption: 15, dConsumption: 2.5, sConsumption: 2.7, jWeight: 41.5, totalThickness: 130 },
+        { model: "MAA120-zs9", mWeight: 39, consumption: 13.5, dConsumption: 0, sConsumption: 3.7375, jWeight: 25, totalThickness: 120 },
+        { model: "MAA140-8", mWeight: 43, consumption: 15, dConsumption: 0, sConsumption: 3.25, jWeight: 30, totalThickness: 140 },
+        { model: "MAA120", mWeight: 39, consumption: 13.5, dConsumption: 0, sConsumption: 3.25, jWeight: 25, totalThickness: 120 },
+        { model: "MAA120-3", mWeight: 39, consumption: 13.5, dConsumption: 0, sConsumption: 3.7375, jWeight: 25, totalThickness: 120 },
+        { model: "MAA130-zd6", mWeight: 44, consumption: 16, dConsumption: 0, sConsumption: 3.25, jWeight: 29.5, totalThickness: 130 },
+        { model: "MAA140-zm3", mWeight: 44, consumption: 16, dConsumption: 0, sConsumption: 3.25, jWeight: 30.5, totalThickness: 140 },
+        { model: "MAB120", mWeight: 40, consumption: 13.5, dConsumption: 0, sConsumption: 2.4375, jWeight: 32.5, totalThickness: 120 },
+        { model: "MAB130", mWeight: 43, consumption: 15, dConsumption: 0, sConsumption: 2.4375, jWeight: 32.5, totalThickness: 130 },
+        { model: "MAA140-3", mWeight: 43, consumption: 15, dConsumption: 0, sConsumption: 3.7375, jWeight: 27, totalThickness: 140 },
+        { model: "MAB130-c4", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 2.25, jWeight: 37.5, totalThickness: 130 },
+        { model: "MAA130-e", mWeight: 40, consumption: 13.5, dConsumption: 0, sConsumption: 3.25, jWeight: 25, totalThickness: 130 },
+        { model: "MHA140", mWeight: 43, consumption: 15, dConsumption: 0, sConsumption: 3.7375, jWeight: 25, totalThickness: 140 },
+        { model: "MAC140-zt8", mWeight: 43, consumption: 15, dConsumption: 0, sConsumption: 3.25, jWeight: 36.5, totalThickness: 140 },
+        { model: "MAA170-3", mWeight: 53, consumption: 18, dConsumption: 0, sConsumption: 3.7375, jWeight: 39, totalThickness: 170 },
+        { model: "MAA130-9", mWeight: 43, consumption: 15, dConsumption: 0, sConsumption: 3.25, jWeight: 29.5, totalThickness: 130 },
+        { model: "MLA130", mWeight: 42, consumption: 15, dConsumption: 0, sConsumption: 3.25, jWeight: 25, totalThickness: 130 },
+        { model: "MAA130-zs11", mWeight: 40, consumption: 13.5, dConsumption: 0, sConsumption: 3.25, jWeight: 32, totalThickness: 130 },
+        { model: "MLC130-e", mWeight: 42, consumption: 15, dConsumption: 0, sConsumption: 3.25, jWeight: 36.5, totalThickness: 130 },
+        { model: "MAA110", mWeight: 39, consumption: 13.5, dConsumption: 0, sConsumption: 3.25, jWeight: 22, totalThickness: 110 },
+        { model: "MAA120-zc3", mWeight: 39, consumption: 13.5, dConsumption: 0, sConsumption: 3.7375, jWeight: 26, totalThickness: 120 },
+        { model: "MAA130-3", mWeight: 40, consumption: 13.5, dConsumption: 0, sConsumption: 3.7375, jWeight: 26, totalThickness: 130 },
+        { model: "MCA130", mWeight: 41, consumption: 13.5, dConsumption: 0, sConsumption: 3.25, jWeight: 26, totalThickness: 130 },
+        { model: "MAA130-za6", mWeight: 40, consumption: 13.5, dConsumption: 0, sConsumption: 3.7375, jWeight: 29, totalThickness: 130 },
+        { model: "MAA140-zh5", mWeight: 43, consumption: 15, dConsumption: 0, sConsumption: 3.25, jWeight: 27, totalThickness: 140 },
+        { model: "MAA130-zt11", mWeight: 40, consumption: 13.5, dConsumption: 0, sConsumption: 3.25, jWeight: 27, totalThickness: 130 },
+        { model: "MAA150-zg2", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.25, jWeight: 34, totalThickness: 150 },
+        { model: "MAA130-zs9", mWeight: 40, consumption: 13.5, dConsumption: 0, sConsumption: 3.7375, jWeight: 27, totalThickness: 130 },
+        { model: "MA7691", mWeight: 48, consumption: 18.5, dConsumption: 0, sConsumption: 3.7375, jWeight: 36, totalThickness: 160 },
+        { model: "MA13901", mWeight: 40, consumption: 13.5, dConsumption: 0, sConsumption: 3.25, jWeight: 28, totalThickness: 130 },
+        { model: "MA1296", mWeight: 39, consumption: 13.5, dConsumption: 0, sConsumption: 3.25, jWeight: 26, totalThickness: 120 },
+        { model: "MA1295", mWeight: 39, consumption: 13.5, dConsumption: 0, sConsumption: 3.25, jWeight: 26, totalThickness: 120 },
+        { model: "MBC120-d24", mWeight: 40, consumption: 15, dConsumption: 2.5, sConsumption: 3.25, jWeight: 36.5, totalThickness: 120 },
+        { model: "MLD130", mWeight: 42, consumption: 14.5, dConsumption: 2.5, sConsumption: 2, jWeight: 36.5, totalThickness: 130 },
+        { model: "MCA130-e", mWeight: 43, consumption: 15, dConsumption: 0, sConsumption: 3.7375, jWeight: 25, totalThickness: 130 },
+        { model: "MAA150-b4", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.25, jWeight: 30.5, totalThickness: 150 },
+        { model: "MAA150-b", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.25, jWeight: 30.5, totalThickness: 150 },
+        { model: "MAA130", mWeight: 40, consumption: 13.5, dConsumption: 0, sConsumption: 3.25, jWeight: 26, totalThickness: 130 },
+        { model: "MAA140", mWeight: 43, consumption: 15, dConsumption: 0, sConsumption: 3.25, jWeight: 27, totalThickness: 140 },
+        { model: "MAA150", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.25, jWeight: 30.5, totalThickness: 150 },
+        { model: "MAA160", mWeight: 48, consumption: 18.5, dConsumption: 0, sConsumption: 3.25, jWeight: 34, totalThickness: 160 },
+        { model: "MLA130-x", mWeight: 42, consumption: 15, dConsumption: 0, sConsumption: 3.25, jWeight: 33.5, totalThickness: 130 },
+        { model: "MLA140-b", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.25, jWeight: 33.5, totalThickness: 140 },
+        { model: "MLA130-k", mWeight: 42, consumption: 15, dConsumption: 0, sConsumption: 3.25, jWeight: 25, totalThickness: 130 },
+        { model: "MLA120-b", mWeight: 40, consumption: 13.5, dConsumption: 0, sConsumption: 3.25, jWeight: 29, totalThickness: 120 },
+        { model: "MLA130-y08", mWeight: 42, consumption: 17, dConsumption: 0, sConsumption: 2.5, jWeight: 33.5, totalThickness: 130 },
+        { model: "MLA130-e", mWeight: 42, consumption: 15, dConsumption: 0, sConsumption: 3.25, jWeight: 28, totalThickness: 130 },
+        { model: "MLA140-y08", mWeight: 45, consumption: 17, dConsumption: 0, sConsumption: 2.708333333, jWeight: 35, totalThickness: 140 },
+        { model: "MAA140-j4", mWeight: 43, consumption: 15, dConsumption: 0, sConsumption: 3.25, jWeight: 27, totalThickness: 140 },
+        { model: "MLA130-zy8", mWeight: 40, consumption: 13.5, dConsumption: 6.5, sConsumption: 2.708333333, jWeight: 28, totalThickness: 130 },
+        { model: "MLA150-i16", mWeight: 45, consumption: 17, dConsumption: 8, sConsumption: 2.491666667, jWeight: 31.5, totalThickness: 150 },
+        { model: "MCA130-q7", mWeight: 41, consumption: 13.5, dConsumption: 0, sConsumption: 3.7375, jWeight: 34, totalThickness: 130 },
+        { model: "MLA140-y12", mWeight: 45, consumption: 17, dConsumption: 0, sConsumption: 2.708333333, jWeight: 35, totalThickness: 140 },
+        { model: "MLA140-y10", mWeight: 45, consumption: 17, dConsumption: 0, sConsumption: 2.708333333, jWeight: 35, totalThickness: 140 },
+        { model: "MB5490", mWeight: 45, consumption: 14.5, dConsumption: 2.5, sConsumption: 2.5, jWeight: 45, totalThickness: 140 },
+        { model: "MAA120-b", mWeight: 39, consumption: 13.5, dConsumption: 0, sConsumption: 3.25, jWeight: 25, totalThickness: 120 },
+        { model: "MAA130-b", mWeight: 40, consumption: 13.5, dConsumption: 0, sConsumption: 3.25, jWeight: 26, totalThickness: 130 },
+        { model: "MAA140-b", mWeight: 43, consumption: 15, dConsumption: 0, sConsumption: 3.25, jWeight: 27, totalThickness: 140 },
+        { model: "MAA140-b3", mWeight: 43, consumption: 15, dConsumption: 0, sConsumption: 3.7375, jWeight: 27, totalThickness: 140 },
+        { model: "MAA140-d3", mWeight: 43, consumption: 15, dConsumption: 0, sConsumption: 3.7375, jWeight: 27, totalThickness: 140 },
+        { model: "MAA150-d3", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.7375, jWeight: 30.5, totalThickness: 150 },
+        { model: "MAA170-b4", mWeight: 53, consumption: 18, dConsumption: 0, sConsumption: 3.25, jWeight: 39, totalThickness: 170 },
+        { model: "MCA130-c", mWeight: 55, consumption: 0, dConsumption: 0, sConsumption: 3.25, jWeight: 25, totalThickness: 130 },
+        { model: "MLA130-m", mWeight: 42, consumption: 15, dConsumption: 0, sConsumption: 3.25, jWeight: 32, totalThickness: 130 },
+        { model: "MAA120-b8", mWeight: 39, consumption: 13.5, dConsumption: 0, sConsumption: 3.25, jWeight: 29, totalThickness: 120 },
+        { model: "MAA130-b8", mWeight: 40, consumption: 13.5, dConsumption: 0, sConsumption: 3.25, jWeight: 31, totalThickness: 130 },
+        { model: "MAA110-zw3", mWeight: 43, consumption: 15, dConsumption: 0, sConsumption: 3.7375, jWeight: 21.5, totalThickness: 120 },
+        { model: "MAA120-zw3", mWeight: 43, consumption: 15, dConsumption: 0, sConsumption: 3.7375, jWeight: 25, totalThickness: 120 },
+        { model: "MAA130-d3", mWeight: 40, consumption: 13.5, dConsumption: 0, sConsumption: 3.7375, jWeight: 25, totalThickness: 130 },
+        { model: "MCA130-b", mWeight: 41, consumption: 13.5, dConsumption: 0, sConsumption: 3.25, jWeight: 26, totalThickness: 130 },
+        { model: "MLA150-zw3", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.7375, jWeight: 34, totalThickness: 150 },
+        { model: "MBA130-zy10", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.954166667, jWeight: 29, totalThickness: 130 },
+        { model: "MBA140-zt14", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.954166667, jWeight: 33, totalThickness: 140 },
+        { model: "MBA144-zt14", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.954166667, jWeight: 33, totalThickness: 140 },
+        { model: "MAA150-zm2", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.7375, jWeight: 33, totalThickness: 150 },
+        { model: "MAA150-zg1", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.25, jWeight: 33, totalThickness: 150 },
+        { model: "MBA120-zt13", mWeight: 40, consumption: 15, dConsumption: 0, sConsumption: 3.954166667, jWeight: 30, totalThickness: 120 },
+        { model: "MAA140-zs2", mWeight: 43, consumption: 15, dConsumption: 0, sConsumption: 3.7375, jWeight: 33, totalThickness: 140 },
+        { model: "MBA120-zs15", mWeight: 40, consumption: 15, dConsumption: 0, sConsumption: 3.954166667, jWeight: 29, totalThickness: 120 },
+        { model: "MAA130-zs16", mWeight: 40, consumption: 13.5, dConsumption: 0, sConsumption: 3.25, jWeight: 28, totalThickness: 130 },
+        { model: "MAA140-zt8", mWeight: 43, consumption: 12.5, dConsumption: 3, sConsumption: 3.25, jWeight: 36.5, totalThickness: 140 },
+        { model: "MAA170-b", mWeight: 53, consumption: 18, dConsumption: 0, sConsumption: 3.25, jWeight: 39, totalThickness: 170 },
+        { model: "MAA100-zg1", mWeight: 38, consumption: 12.5, dConsumption: 2.5, sConsumption: 3.25, jWeight: 21, totalThickness: "95-" },
+        { model: "MLA130-zc4", mWeight: 42, consumption: 15, dConsumption: 0, sConsumption: 3.25, jWeight: 29.5, totalThickness: 130 },
+        { model: "MAA150-j25", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.25, jWeight: 36.5, totalThickness: 150 },
+        { model: "MLA120-zt10", mWeight: 40, consumption: 13.5, dConsumption: 0, sConsumption: 2.708333333, jWeight: 31.5, totalThickness: 120 },
+        { model: "MAA130-b4", mWeight: 40, consumption: 13.5, dConsumption: 0, sConsumption: 3.25, jWeight: 26, totalThickness: 130 },
+        { model: "MBA130-b4", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.954166667, jWeight: 26, totalThickness: 130 },
+        { model: "MBA140-b4", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.954166667, jWeight: 27, totalThickness: 140 },
+        { model: "MBA120-b", mWeight: 40, consumption: 15, dConsumption: 0, sConsumption: 3.954166667, jWeight: 24, totalThickness: 120 },
+        { model: "MBA120-b", mWeight: 40, consumption: 15, dConsumption: 0, sConsumption: 3.954166667, jWeight: 24, totalThickness: 120 },
+        { model: "MAA160-b4", mWeight: 48, consumption: 18.5, dConsumption: 0, sConsumption: 3.7375, jWeight: 36, totalThickness: 160 },
+        { model: "MBA140-b", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.954166667, jWeight: 27, totalThickness: 140 },
+        { model: "MLA150-j2", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 2.708333333, jWeight: 35.5, totalThickness: 150 },
+        { model: "MBA120-b4", mWeight: 40, consumption: 15, dConsumption: 0, sConsumption: 3.954166667, jWeight: 25, totalThickness: 120 },
+        { model: "MBA120-b8", mWeight: 40, consumption: 15, dConsumption: 0, sConsumption: 3.954166667, jWeight: 27, totalThickness: 120 },
+        { model: "MBA130-b3", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.954166667, jWeight: 26, totalThickness: 130 },
+        { model: "MBA130-b", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.954166667, jWeight: 26, totalThickness: 130 },
+        { model: "MBA120-zs10", mWeight: 40, consumption: 15, dConsumption: 0, sConsumption: 3.954166667, jWeight: 26, totalThickness: 120 },
+        { model: "MLA130-b4", mWeight: 42, consumption: 15, dConsumption: 0, sConsumption: 3, jWeight: 25, totalThickness: 130 },
+        { model: "MAA120-zg1", mWeight: 39, consumption: 13.5, dConsumption: 0, sConsumption: 3, jWeight: 27, totalThickness: 120 },
+        { model: "MAA160-zc5", mWeight: 48, consumption: 20.5, dConsumption: 0, sConsumption: 3.7375, jWeight: 38, totalThickness: 160 },
+        { model: "MAA130-za8", mWeight: 40, consumption: 11.5, dConsumption: 2.5, sConsumption: 3.25, jWeight: 26, totalThickness: 130 },
+        { model: "MLC130-g", mWeight: 40, consumption: 17, dConsumption: 3.5, sConsumption: 5, jWeight: 39, totalThickness: 130 },
+        { model: "MAA140-f5", mWeight: 43, consumption: 15, dConsumption: 0, sConsumption: 3.25, jWeight: 27, totalThickness: 140 },
+        { model: "MAA150-f5", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.25, jWeight: 30.5, totalThickness: 150 },
+        { model: "MAA160-f5", mWeight: 48, consumption: 18.5, dConsumption: 0, sConsumption: 3.7375, jWeight: 34, totalThickness: 160 },
+        { model: "MLA140-q7", mWeight: 45, consumption: 16, dConsumption: 0, sConsumption: 3.7375, jWeight: 32.5, totalThickness: 140 },
+        { model: "MAA130-q7", mWeight: 40, consumption: 13.5, dConsumption: 0, sConsumption: 3.7375, jWeight: 31.5, totalThickness: 130 },
+        { model: "MAA150-s7", mWeight: 45, consumption: 17, dConsumption: 0, sConsumption: 3.7375, jWeight: 35, totalThickness: 150 },
+        { model: "MA5601", mWeight: 55, consumption: 18, dConsumption: 6, sConsumption: 2.5, jWeight: 37, totalThickness: 160 },
+        { model: "MA1603", mWeight: 48, consumption: 18.5, dConsumption: 0, sConsumption: 3.7375, jWeight: 37, totalThickness: 160 },
+        { model: "MA5401", mWeight: 50, consumption: 18, dConsumption: 6, sConsumption: 2.5, jWeight: 38, totalThickness: 140 },
+        { model: "MC5401", mWeight: 45, consumption: 16, dConsumption: 6, sConsumption: 2.3, jWeight: 50, totalThickness: 140 },
+        { model: "MB1305", mWeight: 42, consumption: 15, dConsumption: 0, sConsumption: 3, jWeight: 29, totalThickness: 130 },
+        { model: "MBB100", mWeight: 40, consumption: 15, dConsumption: 0, sConsumption: 2.25, jWeight: 23, totalThickness: 100 },
+        { model: "MF1101", mWeight: 40, consumption: 14, dConsumption: 0, sConsumption: 2.25, jWeight: 27, totalThickness: 110 },
+        { model: "MA1497", mWeight: 43, consumption: 15, dConsumption: 0, sConsumption: 3, jWeight: 27, totalThickness: 140 }
+    ];
+    const productDataYou=[
+        { model: "BC4290", newModel: "BC4290", originalCode: "", totalThickness: 42, filmThickness: 24, glueThickness: 18 },
+        { model: "BC4590", newModel: "BC4590", originalCode: "", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
+        { model: "BC4790", newModel: "BC4790", originalCode: "", totalThickness: 47, filmThickness: 25, glueThickness: 22 },
+        { model: "BCB060", newModel: "BC6050", originalCode: "B860A", totalThickness: 60, filmThickness: 41, glueThickness: 19 },
+        { model: "BCB060-20", newModel: "BC6053", originalCode: "B860Y", totalThickness: 60, filmThickness: 38, glueThickness: 22 },
+        { model: "BCB060-n9", newModel: "BP6051", originalCode: "", totalThickness: 60, filmThickness: 34, glueThickness: 26 },
+        { model: "BCB065-zg4", newModel: "BC6561", originalCode: "", totalThickness: 65, filmThickness: 38, glueThickness: 27 },
+        { model: "BCB066-za1", newModel: "BC6661", originalCode: "B866A", totalThickness: 66, filmThickness: 41, glueThickness: 25 },
+        { model: "BCB067-zg4", newModel: "BC6761", originalCode: "", totalThickness: 67, filmThickness: 38, glueThickness: 29 },
+        { model: "BCB075-zg4", newModel: "BC7563", originalCode: "", totalThickness: 75, filmThickness: 48, glueThickness: 27 },
+        { model: "BCB076-za1", newModel: "BC7661", originalCode: "B876A", totalThickness: 76, filmThickness: 48, glueThickness: 28 },
+        { model: "BCB080", newModel: "BC8051", originalCode: "B880A", totalThickness: 80, filmThickness: 48, glueThickness: 32 },
+        { model: "BCB080-zg4", newModel: "BC8053", originalCode: "", totalThickness: 80, filmThickness: 58, glueThickness: 22 },
+        { model: "BCD043", newModel: "BC4390", originalCode: "B443C", totalThickness: 43, filmThickness: 25, glueThickness: 18 },
+        { model: "BCD048", newModel: "BC4890", originalCode: "B448C", totalThickness: 48, filmThickness: 28, glueThickness: 20 },
+        { model: "BCD050", newModel: "BC5090", originalCode: "B450C", totalThickness: 50, filmThickness: 28, glueThickness: 22 },
+        { model: "BCD060-9", newModel: "BC6091", originalCode: "", totalThickness: 60, filmThickness: 38, glueThickness: 22 },
+        { model: "BCD065", newModel: "BC6590", originalCode: "B465C", totalThickness: 65, filmThickness: 41, glueThickness: 24 },
+        { model: "BH3853", newModel: "BH3853", originalCode: "", totalThickness: 38, filmThickness: 25, glueThickness: 13 },
+        { model: "BH4053", newModel: "BH4053", originalCode: "", totalThickness: 40, filmThickness: 25, glueThickness: 15 },
+        { model: "BH4350", newModel: "BH4350", originalCode: "", totalThickness: 43, filmThickness: 25, glueThickness: 18 },
+        { model: "BH4353", newModel: "BH4353", originalCode: "", totalThickness: 43, filmThickness: 25, glueThickness: 18 },
+        { model: "BH4553", newModel: "BH4553", originalCode: "", totalThickness: 45, filmThickness: 28, glueThickness: 17 },
+        { model: "BH4753", newModel: "BH4753", originalCode: "", totalThickness: 47, filmThickness: 30, glueThickness: 17 },
+        { model: "BH5053", newModel: "BH5053", originalCode: "", totalThickness: 50, filmThickness: 30, glueThickness: 20 },
+        { model: "BHB038", newModel: "BH3850", originalCode: "", totalThickness: 38, filmThickness: 25, glueThickness: 13 },
+        { model: "BHB040", newModel: "BH4050", originalCode: "BK40A", totalThickness: 40, filmThickness: 25, glueThickness: 15 },
+        { model: "BHB045", newModel: "BH4550", originalCode: "BK45B", totalThickness: 45, filmThickness: 28, glueThickness: 17 },
+        { model: "BHB047", newModel: "BH4750", originalCode: "BK47A", totalThickness: 47, filmThickness: 30, glueThickness: 17 },
+        { model: "BHB050", newModel: "BH5050", originalCode: "BK50B", totalThickness: 50, filmThickness: 30, glueThickness: 20 },
+        { model: "BM7090", newModel: "BM7090", originalCode: "", totalThickness: 70, filmThickness: 41, glueThickness: 29 },
+        { model: "BMD065", newModel: "BM6590", originalCode: "B465CW", totalThickness: 65, filmThickness: 41, glueThickness: 24 },
+        { model: "BMD065-18", newModel: "BM6593", originalCode: "", totalThickness: 65, filmThickness: 38, glueThickness: 27 },
+        { model: "BP3853", newModel: "BP3853", originalCode: "", totalThickness: 38, filmThickness: 25, glueThickness: 13 },
+        { model: "BP3951", newModel: "BP3951", originalCode: "", totalThickness: 39, filmThickness: 25, glueThickness: 14 },
+        { model: "BP3953", newModel: "BP3953", originalCode: "", totalThickness: 39, filmThickness: 25, glueThickness: 14 },
+        { model: "BP4051", newModel: "BP4051", originalCode: "", totalThickness: 40, filmThickness: 24, glueThickness: 16 },
+        { model: "BP4053", newModel: "BP4053", originalCode: "", totalThickness: 40, filmThickness: 25, glueThickness: 15 },
+        { model: "BP4071", newModel: "BP4071", originalCode: "", totalThickness: 40, filmThickness: 25, glueThickness: 15 },
+        { model: "BP4253", newModel: "BP4253", originalCode: "", totalThickness: 42, filmThickness: 25, glueThickness: 17 },
+        { model: "BP4353", newModel: "BP4353", originalCode: "", totalThickness: 43, filmThickness: 25, glueThickness: 18 },
+        { model: "BP4453", newModel: "BP4453", originalCode: "", totalThickness: 44, filmThickness: 28, glueThickness: 16 },
+        { model: "BP4473", newModel: "BP4473", originalCode: "", totalThickness: 44, filmThickness: 25, glueThickness: 19 },
+        { model: "BP4475", newModel: "BP4475", originalCode: "", totalThickness: 44, filmThickness: 28, glueThickness: 16 },
+        { model: "BP4553", newModel: "BP4553", originalCode: "", totalThickness: 45, filmThickness: 28, glueThickness: 17 },
+        { model: "BP4573", newModel: "BP4573", originalCode: "", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
+        { model: "BP4650", newModel: "BP4650", originalCode: "", totalThickness: 46, filmThickness: 28, glueThickness: 18 },
+        { model: "BP4673", newModel: "BP4673", originalCode: "", totalThickness: 46, filmThickness: 25, glueThickness: 21 },
+        { model: "BP4753", newModel: "BP4753", originalCode: "", totalThickness: 47, filmThickness: 30, glueThickness: 17 },
+        { model: "BP4853", newModel: "BP4853", originalCode: "", totalThickness: 48, filmThickness: 30, glueThickness: 18 },
+        { model: "BP4879", newModel: "BP4879", originalCode: "", totalThickness: 48, filmThickness: 25, glueThickness: 23 },
+        { model: "BP4951", newModel: "BP4951", originalCode: "", totalThickness: 49, filmThickness: 30, glueThickness: 19 },
+        { model: "BP4953", newModel: "BP4953", originalCode: "", totalThickness: 49, filmThickness: 30, glueThickness: 19 },
+        { model: "BP5053", newModel: "BP5053", originalCode: "", totalThickness: 50, filmThickness: 30, glueThickness: 20 },
+        { model: "BP5073", newModel: "BP5073", originalCode: "", totalThickness: 50, filmThickness: 25, glueThickness: 25 },
+        { model: "BP5091", newModel: "BP5091", originalCode: "", totalThickness: 50, filmThickness: 25, glueThickness: 25 },
+        { model: "BP5253", newModel: "BP5253", originalCode: "", totalThickness: 52, filmThickness: 32, glueThickness: 20 },
+        { model: "BP5373", newModel: "BP5373", originalCode: "", totalThickness: 53, filmThickness: 28, glueThickness: 25 },
+        { model: "BP5375", newModel: "BP5375", originalCode: "", totalThickness: 53, filmThickness: 28, glueThickness: 25 },
+        { model: "BP5571", newModel: "BP5571", originalCode: "", totalThickness: 55, filmThickness: 28, glueThickness: 27 },
+        { model: "BP5653", newModel: "BP5653", originalCode: "", totalThickness: 56, filmThickness: 36, glueThickness: 20 },
+        { model: "BP6050", newModel: "BP6050", originalCode: "", totalThickness: 60, filmThickness: 42, glueThickness: 18 },
+        { model: "BP6071", newModel: "BP6071", originalCode: "", totalThickness: 60, filmThickness: 32, glueThickness: 28 },
+        { model: "BP6351", newModel: "BP6351", originalCode: "", totalThickness: 63, filmThickness: 38, glueThickness: 25 },
+        { model: "BP6353", newModel: "BP6353", originalCode: "", totalThickness: 63, filmThickness: 42, glueThickness: 21 },
+        { model: "BPA044-d", newModel: "BP4471", originalCode: "BT44C", totalThickness: 44, filmThickness: 25, glueThickness: 19 },
+        { model: "BPA045", newModel: "BP4570", originalCode: "BT45", totalThickness: 45, filmThickness: 24, glueThickness: 21 },
+        { model: "BPA045-d", newModel: "BP4571", originalCode: "BT45C", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
+        { model: "BPA045-dq", newModel: "BQ4571", originalCode: "BT45-CQ", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
+        { model: "BPA046-b", newModel: "BP4670", originalCode: "BT46", totalThickness: 46, filmThickness: 24, glueThickness: 22 },
+        { model: "BPA046-d", newModel: "BP4671", originalCode: "BT46C", totalThickness: 46, filmThickness: 25, glueThickness: 21 },
+        { model: "BPA046-dq", newModel: "BP4675", originalCode: "", totalThickness: 46, filmThickness: 25, glueThickness: 21 },
+        { model: "BPA046-zs23", newModel: "BP4677", originalCode: "", totalThickness: 46, filmThickness: 25, glueThickness: 21 },
+        { model: "BPA048", newModel: "BP4870", originalCode: "BT48", totalThickness: 48, filmThickness: 24, glueThickness: 24 },
+        { model: "BPA048-zp5", newModel: "BP4877", originalCode: "BT48C", totalThickness: 48, filmThickness: 25, glueThickness: 23 },
+        { model: "BPA050-c", newModel: "BP5070", originalCode: "BT50", totalThickness: 50, filmThickness: 24, glueThickness: 26 },
+        { model: "BPA050-cq", newModel: "BQ5070", originalCode: "BT50-Q", totalThickness: 50, filmThickness: 24, glueThickness: 26 },
+        { model: "BPA050-d", newModel: "BP5071", originalCode: "BT50C", totalThickness: 50, filmThickness: 25, glueThickness: 25 },
+        { model: "BPA050-dq", newModel: "BP5075", originalCode: "", totalThickness: 50, filmThickness: 25, glueThickness: 25 },
+        { model: "BPA053-c", newModel: "BP5370", originalCode: "BT53", totalThickness: 53, filmThickness: 28, glueThickness: 25 },
+        { model: "BPA053-cq", newModel: "BQ5370", originalCode: "BT53-Q", totalThickness: 53, filmThickness: 28, glueThickness: 25 },
+        { model: "BPA053-d", newModel: "BP5371", originalCode: "BT53C", totalThickness: 53, filmThickness: 28, glueThickness: 25 },
+        { model: "BPA056-b", newModel: "BP5670", originalCode: "BT56", totalThickness: 56, filmThickness: 28, glueThickness: 28 },
+        { model: "BPA056-zp5", newModel: "BP5677", originalCode: "BT56C", totalThickness: 56, filmThickness: 28, glueThickness: 28 },
+        { model: "BPA060-b", newModel: "BP6070", originalCode: "BT60B", totalThickness: 60, filmThickness: 32, glueThickness: 28 },
+        { model: "BPA060-bq", newModel: "BQ6070", originalCode: "BT60-Q", totalThickness: 60, filmThickness: 32, glueThickness: 28 },
+        { model: "BPA060-dq", newModel: "BQ6071", originalCode: "BT60-QC", totalThickness: 60, filmThickness: 32, glueThickness: 28 },
+        { model: "BPA062-b", newModel: "BP6270", originalCode: "BT62", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
+        { model: "BPA062-bq", newModel: "BQ6270", originalCode: "BT62-Q", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
+        { model: "BPA062-dq", newModel: "BQ6271", originalCode: "BT62-CQ", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
+        { model: "BPA063-b", newModel: "BP6370", originalCode: "BT63", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
+        { model: "BPA063-cq", newModel: "BQ6370", originalCode: "BT63-Q", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
+        { model: "BPA063-d", newModel: "BP6371", originalCode: "", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
+        { model: "BPA063-dq", newModel: "BQ6371", originalCode: "BT63-CQ", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
+        { model: "BPA064-bq", newModel: "BQ6470", originalCode: "BT64-Q", totalThickness: 64, filmThickness: 36, glueThickness: 28 },
+        { model: "BPA065-b", newModel: "BP6570", originalCode: "", totalThickness: 65, filmThickness: 40, glueThickness: 25 },
+        { model: "BPA065-cq", newModel: "BQ6570", originalCode: "BT65-Q", totalThickness: 65, filmThickness: 40, glueThickness: 25 },
+        { model: "BPA065-dq", newModel: "BQ6571", originalCode: "", totalThickness: 65, filmThickness: 40, glueThickness: 25 },
+        { model: "BPA067-bq", newModel: "BP6770", originalCode: "", totalThickness: 67, filmThickness: 40, glueThickness: 27 },
+        { model: "BPA067-dq", newModel: "BP6771", originalCode: "", totalThickness: 67, filmThickness: 40, glueThickness: 27 },
+        { model: "BPA070-b", newModel: "BP7070", originalCode: "BT70", totalThickness: 70, filmThickness: 42, glueThickness: 28 },
+        { model: "BPA080-b", newModel: "BP8070", originalCode: "BT80", totalThickness: 80, filmThickness: 50, glueThickness: 30 },
+        { model: "BPA080-bq", newModel: "BQ8070", originalCode: "BT80-Q", totalThickness: 80, filmThickness: 50, glueThickness: 30 },
+        { model: "BPA090-cq", newModel: "BQ9070", originalCode: "BT90-Q", totalThickness: 90, filmThickness: 63, glueThickness: 27 },
+        { model: "BPB038", newModel: "BP3850", originalCode: "B838", totalThickness: 38, filmThickness: 25, glueThickness: 13 },
+        { model: "BPB040", newModel: "BP4050", originalCode: "B840", totalThickness: 40, filmThickness: 25, glueThickness: 15 },
+        { model: "BPB042", newModel: "BP4250", originalCode: "B842", totalThickness: 42, filmThickness: 25, glueThickness: 17 },
+        { model: "BPB042-h", newModel: "BP4251", originalCode: "B842-SB", totalThickness: 42, filmThickness: 25, glueThickness: 17 },
+        { model: "BPB043", newModel: "BP4350", originalCode: "B843", totalThickness: 43, filmThickness: 25, glueThickness: 18 },
+        { model: "BPB044", newModel: "BP4450", originalCode: "B844", totalThickness: 44, filmThickness: 28, glueThickness: 16 },
+        { model: "BPB045", newModel: "BP4550", originalCode: "B845", totalThickness: 45, filmThickness: 28, glueThickness: 17 },
+        { model: "BPB045-f2", newModel: "BP4552", originalCode: "B845-G", totalThickness: 45, filmThickness: 24, glueThickness: 21 },
+        { model: "BPB047", newModel: "BP4750", originalCode: "B847", totalThickness: 47, filmThickness: 30, glueThickness: 17 },
+        { model: "BPB047-f", newModel: "BP4752", originalCode: "B847G", totalThickness: 47, filmThickness: 24, glueThickness: 23 },
+        { model: "BPB048", newModel: "BP4850", originalCode: "B848", totalThickness: 48, filmThickness: 30, glueThickness: 18 },
+        { model: "BPB048-f4", newModel: "BP4852", originalCode: "B848G", totalThickness: 48, filmThickness: 24, glueThickness: 24 },
+        { model: "BPB050", newModel: "BP5050", originalCode: "B850", totalThickness: 50, filmThickness: 30, glueThickness: 20 },
+        { model: "BPB050-e", newModel: "BP5051", originalCode: "", totalThickness: 50, filmThickness: 28, glueThickness: 22 },
+        { model: "BPB052", newModel: "BP5250", originalCode: "B852", totalThickness: 52, filmThickness: 32, glueThickness: 20 },
+        { model: "BPB056", newModel: "BP5650", originalCode: "", totalThickness: 56, filmThickness: 36, glueThickness: 20 },
+        { model: "BPB062-f2", newModel: "BP6250", originalCode: "B862G", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
+        { model: "BPB063", newModel: "BP6350", originalCode: "B863", totalThickness: 63, filmThickness: 42, glueThickness: 21 },
+        { model: "BPB063-f", newModel: "BP6352", originalCode: "B863G", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
+        { model: "BPB065-f", newModel: "BP6550", originalCode: "B865G", totalThickness: 65, filmThickness: 40, glueThickness: 25 },
+        { model: "BPB070-f2", newModel: "BP7050", originalCode: "B870G", totalThickness: 70, filmThickness: 45, glueThickness: 25 },
+        { model: "BPB072-f", newModel: "BP7250", originalCode: "B872G", totalThickness: 72, filmThickness: 45, glueThickness: 27 },
+        { model: "BPB076-e", newModel: "BP7651", originalCode: "", totalThickness: 76, filmThickness: 50, glueThickness: 26 },
+        { model: "BPB076-f", newModel: "BP7650", originalCode: "B876G", totalThickness: 76, filmThickness: 50, glueThickness: 26 },
+        { model: "BPB076-fq", newModel: "BQ7650", originalCode: "", totalThickness: 76, filmThickness: 50, glueThickness: 26 },
+        { model: "BPB078-f", newModel: "BP7850", originalCode: "", totalThickness: 78, filmThickness: 50, glueThickness: 28 },
+        { model: "BPB080-f", newModel: "BP8050", originalCode: "", totalThickness: 80, filmThickness: 50, glueThickness: 30 },
+        { model: "BPD042-4", newModel: "BP4290", originalCode: "B142A-4", totalThickness: 42, filmThickness: 25, glueThickness: 17 },
+        { model: "BPD043-4", newModel: "BP4390", originalCode: "B143A", totalThickness: 43, filmThickness: 25, glueThickness: 18 },
+        { model: "BPD045", newModel: "BP4590", originalCode: "B145A", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
+        { model: "BPD045-c", newModel: "BP4591", originalCode: "B145D", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
+        { model: "BPD047", newModel: "BP4790", originalCode: "B147A", totalThickness: 47, filmThickness: 25, glueThickness: 22 },
+        { model: "BPD048", newModel: "BP4890", originalCode: "B148A", totalThickness: 48, filmThickness: 28, glueThickness: 20 },
+        { model: "BPD050", newModel: "BP5090", originalCode: "B150A", totalThickness: 50, filmThickness: 28, glueThickness: 22 },
+        { model: "BPD055", newModel: "BP5590", originalCode: "B155A", totalThickness: 55, filmThickness: 32, glueThickness: 23 },
+        { model: "BPD055-q", newModel: "BP5591", originalCode: "", totalThickness: 55, filmThickness: 32, glueThickness: 23 },
+        { model: "BPD060", newModel: "BP6090", originalCode: "B160A", totalThickness: 60, filmThickness: 36, glueThickness: 24 },
+        { model: "BPD065", newModel: "BP6590", originalCode: "B165A", totalThickness: 65, filmThickness: 42, glueThickness: 23 },
+        { model: "BPD065-q", newModel: "BP6591", originalCode: "", totalThickness: 65, filmThickness: 42, glueThickness: 23 },
+        { model: "BPD090", newModel: "BP9090", originalCode: "B190A", totalThickness: 90, filmThickness: 63, glueThickness: 27 },
+        { model: "BPD090-q", newModel: "BP9091", originalCode: "", totalThickness: 90, filmThickness: 63, glueThickness: 27 },
+        { model: "BQ4573", newModel: "BQ4573", originalCode: "", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
+        { model: "BQ4871", newModel: "BQ4871", originalCode: "", totalThickness: 48, filmThickness: 25, glueThickness: 23 },
+        { model: "BQ5570", newModel: "BQ5570", originalCode: "", totalThickness: 55, filmThickness: 28, glueThickness: 27 },
+        { model: "BQ5571", newModel: "BQ5571", originalCode: "", totalThickness: 55, filmThickness: 28, glueThickness: 27 },
+        { model: "BQ5576", newModel: "BQ5576", originalCode: "", totalThickness: 55, filmThickness: 36, glueThickness: 19 },
+        { model: "BQ5676", newModel: "BQ5676", originalCode: "", totalThickness: 56, filmThickness: 36, glueThickness: 20 },
+        { model: "BQ5870", newModel: "BQ5870", originalCode: "", totalThickness: 58, filmThickness: 32, glueThickness: 26 },
+        { model: "BQ5876", newModel: "BQ5876", originalCode: "", totalThickness: 58, filmThickness: 38, glueThickness: 20 },
+        { model: "BQ5976", newModel: "BQ5976", originalCode: "", totalThickness: 59, filmThickness: 38, glueThickness: 21 },
+        { model: "BQ6476", newModel: "BQ6476", originalCode: "", totalThickness: 64, filmThickness: 38, glueThickness: 26 },
+        { model: "BQ6576", newModel: "BQ6576", originalCode: "", totalThickness: 65, filmThickness: 38, glueThickness: 27 },
+        { model: "BQ6577", newModel: "BQ6577", originalCode: "", totalThickness: 65, filmThickness: 38, glueThickness: 27 },
+        { model: "BWD063-21", newModel: "BN6391", originalCode: "", totalThickness: 63, filmThickness: 38, glueThickness: 25 },
+        { model: "BWD063-q", newModel: "BN6390", originalCode: "BN63C-Q", totalThickness: 63, filmThickness: 38, glueThickness: 25 },
+        { model: "BWD087-d", newModel: "BN8790", originalCode: "", totalThickness: 87, filmThickness: 60, glueThickness: 27 },
+        { model: "BY4553", newModel: "BY4553", originalCode: "", totalThickness: 45, filmThickness: 28, glueThickness: 17 },
+        { model: "BY4570", newModel: "BY4570", originalCode: "", totalThickness: 45, filmThickness: 24, glueThickness: 21 },
+        { model: "BY4853", newModel: "BY4853", originalCode: "", totalThickness: 48, filmThickness: 30, glueThickness: 18 },
+        { model: "BY5050", newModel: "BY5050", originalCode: "", totalThickness: 50, filmThickness: 30, glueThickness: 20 },
+        { model: "BY5070", newModel: "BY5070", originalCode: "", totalThickness: 50, filmThickness: 24, glueThickness: 26 },
+        { model: "BY5071", newModel: "BY5071", originalCode: "", totalThickness: 50, filmThickness: 25, glueThickness: 25 },
+        { model: "BY5271", newModel: "BY5271", originalCode: "", totalThickness: 52, filmThickness: 28, glueThickness: 24 },
+        { model: "BY5571", newModel: "BY5571", originalCode: "", totalThickness: 55, filmThickness: 28, glueThickness: 27 },
+        { model: "BY6051", newModel: "BY6051", originalCode: "", totalThickness: 60, filmThickness: 42, glueThickness: 18 },
+        { model: "BY6053", newModel: "BY6053", originalCode: "", totalThickness: 60, filmThickness: 42, glueThickness: 18 },
+        { model: "BY6071", newModel: "BY6071", originalCode: "", totalThickness: 60, filmThickness: 32, glueThickness: 28 },
+        { model: "BY6272", newModel: "BY6272", originalCode: "", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
+        { model: "BY6353", newModel: "BY6353", originalCode: "", totalThickness: 63, filmThickness: 42, glueThickness: 21 },
+        { model: "BY6372", newModel: "BY6372", originalCode: "", totalThickness: 63, filmThickness: 38, glueThickness: 25 },
+        { model: "BY6373", newModel: "BY6373", originalCode: "", totalThickness: 63, filmThickness: 38, glueThickness: 25 },
+        { model: "BY6576", newModel: "BY6576", originalCode: "", totalThickness: 65, filmThickness: 38, glueThickness: 27 },
+        { model: "BY6578", newModel: "BY6578", originalCode: "", totalThickness: 65, filmThickness: 38, glueThickness: 27 },
+        { model: "BYA053-dq", newModel: "BY5371", originalCode: "", totalThickness: 53, filmThickness: 28, glueThickness: 25 },
+        { model: "BYA060-b", newModel: "BY6070", originalCode: "B660B", totalThickness: 60, filmThickness: 32, glueThickness: 28 },
+        { model: "BYA062-b", newModel: "BY6270", originalCode: "B662B", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
+        { model: "BYA062-s", newModel: "BY6271", originalCode: "B662BS", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
+        { model: "BYA062-s13", newModel: "BY6273", originalCode: "B662-Q", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
+        { model: "BYA063-d", newModel: "BY6375", originalCode: "", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
+    ];
     const productDataBuJi=[
         { model: "DBB130", newModel: "DP1302", originalCode: "D113", totalThickness: 130 },
         { model: "DCB130", newModel: "DA1330", originalCode: "D313", totalThickness: 130 },
@@ -2760,23 +3088,23 @@
         { model: "DPB300-25", newModel: "/", originalCode: "/", totalThickness: 300 }
     ];
     const productData = [
-        { model: "BC4290", newModel: "BC4290", originalCode: "", totalThickness: 42, filmThickness: 24, glueThickness: 18 },
+        // { model: "BC4290", newModel: "BC4290", originalCode: "", totalThickness: 42, filmThickness: 24, glueThickness: 18 },
         { model: "BC4513", newModel: "BC4513", originalCode: "", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
         { model: "BC4514", newModel: "BC4514", originalCode: "", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
-        { model: "BC4590", newModel: "BC4590", originalCode: "", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
-        { model: "BC4790", newModel: "BC4790", originalCode: "", totalThickness: 47, filmThickness: 25, glueThickness: 22 },
+        // { model: "BC4590", newModel: "BC4590", originalCode: "", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
+        // { model: "BC4790", newModel: "BC4790", originalCode: "", totalThickness: 47, filmThickness: 25, glueThickness: 22 },
         { model: "BC5410", newModel: "BC5410", originalCode: "", totalThickness: 54, filmThickness: 28, glueThickness: 26 },
         { model: "BC6531", newModel: "BC6531", originalCode: "", totalThickness: 65, filmThickness: 38, glueThickness: 27 },
-        { model: "BCB060", newModel: "BC6050", originalCode: "B860A", totalThickness: 60, filmThickness: 41, glueThickness: 19 },
-        { model: "BCB060-20", newModel: "BC6053", originalCode: "B860Y", totalThickness: 60, filmThickness: 38, glueThickness: 22 },
-        { model: "BCB060-n9", newModel: "BP6051", originalCode: "", totalThickness: 60, filmThickness: 34, glueThickness: 26 },
-        { model: "BCB065-zg4", newModel: "BC6561", originalCode: "", totalThickness: 65, filmThickness: 38, glueThickness: 27 },
-        { model: "BCB066-za1", newModel: "BC6661", originalCode: "B866A", totalThickness: 66, filmThickness: 41, glueThickness: 25 },
-        { model: "BCB067-zg4", newModel: "BC6761", originalCode: "", totalThickness: 67, filmThickness: 38, glueThickness: 29 },
-        { model: "BCB075-zg4", newModel: "BC7563", originalCode: "", totalThickness: 75, filmThickness: 48, glueThickness: 27 },
-        { model: "BCB076-za1", newModel: "BC7661", originalCode: "B876A", totalThickness: 76, filmThickness: 48, glueThickness: 28 },
-        { model: "BCB080", newModel: "BC8051", originalCode: "B880A", totalThickness: 80, filmThickness: 48, glueThickness: 32 },
-        { model: "BCB080-zg4", newModel: "BC8053", originalCode: "", totalThickness: 80, filmThickness: 58, glueThickness: 22 },
+        // { model: "BCB060", newModel: "BC6050", originalCode: "B860A", totalThickness: 60, filmThickness: 41, glueThickness: 19 },
+        // { model: "BCB060-20", newModel: "BC6053", originalCode: "B860Y", totalThickness: 60, filmThickness: 38, glueThickness: 22 },
+        // { model: "BCB060-n9", newModel: "BP6051", originalCode: "", totalThickness: 60, filmThickness: 34, glueThickness: 26 },
+        // { model: "BCB065-zg4", newModel: "BC6561", originalCode: "", totalThickness: 65, filmThickness: 38, glueThickness: 27 },
+        // { model: "BCB066-za1", newModel: "BC6661", originalCode: "B866A", totalThickness: 66, filmThickness: 41, glueThickness: 25 },
+        // { model: "BCB067-zg4", newModel: "BC6761", originalCode: "", totalThickness: 67, filmThickness: 38, glueThickness: 29 },
+        // { model: "BCB075-zg4", newModel: "BC7563", originalCode: "", totalThickness: 75, filmThickness: 48, glueThickness: 27 },
+        // { model: "BCB076-za1", newModel: "BC7661", originalCode: "B876A", totalThickness: 76, filmThickness: 48, glueThickness: 28 },
+        // { model: "BCB080", newModel: "BC8051", originalCode: "B880A", totalThickness: 80, filmThickness: 48, glueThickness: 32 },
+        // { model: "BCB080-zg4", newModel: "BC8053", originalCode: "", totalThickness: 80, filmThickness: 58, glueThickness: 22 },
         { model: "BCC034", newModel: "BC3410", originalCode: "", totalThickness: 34, filmThickness: 24, glueThickness: 10 },
         { model: "BCC035", newModel: "BC3510", originalCode: "", totalThickness: 35, filmThickness: 24, glueThickness: 11 },
         { model: "BCC036", newModel: "BC3610", originalCode: "B436B", totalThickness: 36, filmThickness: 24, glueThickness: 12 },
@@ -2811,11 +3139,11 @@
         { model: "BCC066", newModel: "BC6610", originalCode: "B466", totalThickness: 66, filmThickness: 41, glueThickness: 25 },
         { model: "BCC068-za1", newModel: "BC6830", originalCode: "B468B", totalThickness: 68, filmThickness: 41, glueThickness: 27 },
         { model: "BCC076", newModel: "BC7610", originalCode: "B476", totalThickness: 76, filmThickness: 48, glueThickness: 28 },
-        { model: "BCD043", newModel: "BC4390", originalCode: "B443C", totalThickness: 43, filmThickness: 25, glueThickness: 18 },
-        { model: "BCD048", newModel: "BC4890", originalCode: "B448C", totalThickness: 48, filmThickness: 28, glueThickness: 20 },
-        { model: "BCD050", newModel: "BC5090", originalCode: "B450C", totalThickness: 50, filmThickness: 28, glueThickness: 22 },
-        { model: "BCD060-9", newModel: "BC6091", originalCode: "", totalThickness: 60, filmThickness: 38, glueThickness: 22 },
-        { model: "BCD065", newModel: "BC6590", originalCode: "B465C", totalThickness: 65, filmThickness: 41, glueThickness: 24 },
+        // { model: "BCD043", newModel: "BC4390", originalCode: "B443C", totalThickness: 43, filmThickness: 25, glueThickness: 18 },
+        // { model: "BCD048", newModel: "BC4890", originalCode: "B448C", totalThickness: 48, filmThickness: 28, glueThickness: 20 },
+        // { model: "BCD050", newModel: "BC5090", originalCode: "B450C", totalThickness: 50, filmThickness: 28, glueThickness: 22 },
+        // { model: "BCD060-9", newModel: "BC6091", originalCode: "", totalThickness: 60, filmThickness: 38, glueThickness: 22 },
+        // { model: "BCD065", newModel: "BC6590", originalCode: "B465C", totalThickness: 65, filmThickness: 41, glueThickness: 24 },
         { model: "BD4330", newModel: "BD4330", originalCode: "BPC043-dtL2", totalThickness: 43, filmThickness: 24, glueThickness: 19 },
         { model: "BD4630", newModel: "BD4630", originalCode: "", totalThickness: 46, filmThickness: 25, glueThickness: 21 },
         { model: "BD4830", newModel: "BD4830", originalCode: "", totalThickness: 48, filmThickness: 25, glueThickness: 23 },
@@ -2823,19 +3151,19 @@
         { model: "BD5230", newModel: "BD5230", originalCode: "", totalThickness: 52, filmThickness: 28, glueThickness: 24 },
         { model: "BDC050-g", newModel: "BP5015", originalCode: "", totalThickness: 50, filmThickness: 28, glueThickness: 22 },
         { model: "BDC053-zd3", newModel: "BQ5330", originalCode: "", totalThickness: 53, filmThickness: 28, glueThickness: 25 },
-        { model: "BH3853", newModel: "BH3853", originalCode: "", totalThickness: 38, filmThickness: 25, glueThickness: 13 },
-        { model: "BH4053", newModel: "BH4053", originalCode: "", totalThickness: 40, filmThickness: 25, glueThickness: 15 },
-        { model: "BH4350", newModel: "BH4350", originalCode: "", totalThickness: 43, filmThickness: 25, glueThickness: 18 },
-        { model: "BH4353", newModel: "BH4353", originalCode: "", totalThickness: 43, filmThickness: 25, glueThickness: 18 },
-        { model: "BH4553", newModel: "BH4553", originalCode: "", totalThickness: 45, filmThickness: 28, glueThickness: 17 },
+        // { model: "BH3853", newModel: "BH3853", originalCode: "", totalThickness: 38, filmThickness: 25, glueThickness: 13 },
+        // { model: "BH4053", newModel: "BH4053", originalCode: "", totalThickness: 40, filmThickness: 25, glueThickness: 15 },
+        // { model: "BH4350", newModel: "BH4350", originalCode: "", totalThickness: 43, filmThickness: 25, glueThickness: 18 },
+        // { model: "BH4353", newModel: "BH4353", originalCode: "", totalThickness: 43, filmThickness: 25, glueThickness: 18 },
+        // { model: "BH4553", newModel: "BH4553", originalCode: "", totalThickness: 45, filmThickness: 28, glueThickness: 17 },
         { model: "BH4630", newModel: "BH4630", originalCode: "", totalThickness: 46, filmThickness: 28, glueThickness: 18 },
-        { model: "BH4753", newModel: "BH4753", originalCode: "", totalThickness: 47, filmThickness: 30, glueThickness: 17 },
-        { model: "BH5053", newModel: "BH5053", originalCode: "", totalThickness: 50, filmThickness: 30, glueThickness: 20 },
-        { model: "BHB038", newModel: "BH3850", originalCode: "", totalThickness: 38, filmThickness: 25, glueThickness: 13 },
-        { model: "BHB040", newModel: "BH4050", originalCode: "BK40A", totalThickness: 40, filmThickness: 25, glueThickness: 15 },
-        { model: "BHB045", newModel: "BH4550", originalCode: "BK45B", totalThickness: 45, filmThickness: 28, glueThickness: 17 },
-        { model: "BHB047", newModel: "BH4750", originalCode: "BK47A", totalThickness: 47, filmThickness: 30, glueThickness: 17 },
-        { model: "BHB050", newModel: "BH5050", originalCode: "BK50B", totalThickness: 50, filmThickness: 30, glueThickness: 20 },
+        // { model: "BH4753", newModel: "BH4753", originalCode: "", totalThickness: 47, filmThickness: 30, glueThickness: 17 },
+        // { model: "BH5053", newModel: "BH5053", originalCode: "", totalThickness: 50, filmThickness: 30, glueThickness: 20 },
+        // { model: "BHB038", newModel: "BH3850", originalCode: "", totalThickness: 38, filmThickness: 25, glueThickness: 13 },
+        // { model: "BHB040", newModel: "BH4050", originalCode: "BK40A", totalThickness: 40, filmThickness: 25, glueThickness: 15 },
+        // { model: "BHB045", newModel: "BH4550", originalCode: "BK45B", totalThickness: 45, filmThickness: 28, glueThickness: 17 },
+        // { model: "BHB047", newModel: "BH4750", originalCode: "BK47A", totalThickness: 47, filmThickness: 30, glueThickness: 17 },
+        // { model: "BHB050", newModel: "BH5050", originalCode: "BK50B", totalThickness: 50, filmThickness: 30, glueThickness: 20 },
         { model: "BHC038-b", newModel: "BH3810", originalCode: "BK38", totalThickness: 38, filmThickness: 24, glueThickness: 14 },
         { model: "BHC040-b", newModel: "BH4010", originalCode: "BK40", totalThickness: 40, filmThickness: 24, glueThickness: 16 },
         { model: "BHC043-b", newModel: "BH4310", originalCode: "BK43", totalThickness: 43, filmThickness: 24, glueThickness: 19 },
@@ -2855,11 +3183,11 @@
         { model: "BM6830", newModel: "BM6830", originalCode: "", totalThickness: 68, filmThickness: 41, glueThickness: 27 },
         { model: "BM7010", newModel: "BM7010", originalCode: "", totalThickness: 70, filmThickness: 48, glueThickness: 22 },
         { model: "BM7030", newModel: "BM7030", originalCode: "", totalThickness: 70, filmThickness: 48, glueThickness: 22 },
-        { model: "BM7090", newModel: "BM7090", originalCode: "", totalThickness: 70, filmThickness: 41, glueThickness: 29 },
+        // { model: "BM7090", newModel: "BM7090", originalCode: "", totalThickness: 70, filmThickness: 41, glueThickness: 29 },
         { model: "BMC050", newModel: "BM5010", originalCode: "", totalThickness: 50, filmThickness: 28, glueThickness: 22 },
         { model: "BMC065-9", newModel: "BM6511", originalCode: "B465BW", totalThickness: 65, filmThickness: 38, glueThickness: 27 },
-        { model: "BMD065", newModel: "BM6590", originalCode: "B465CW", totalThickness: 65, filmThickness: 41, glueThickness: 24 },
-        { model: "BMD065-18", newModel: "BM6593", originalCode: "", totalThickness: 65, filmThickness: 38, glueThickness: 27 },
+        // { model: "BMD065", newModel: "BM6590", originalCode: "B465CW", totalThickness: 65, filmThickness: 41, glueThickness: 24 },
+        // { model: "BMD065-18", newModel: "BM6593", originalCode: "", totalThickness: 65, filmThickness: 38, glueThickness: 27 },
         { model: "BN4010", newModel: "BN4010", originalCode: "", totalThickness: 40, filmThickness: 24, glueThickness: 16 },
         { model: "BN4511", newModel: "BN4511", originalCode: "", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
         { model: "BN4813", newModel: "BN4813", originalCode: "", totalThickness: 48, filmThickness: 25, glueThickness: 23 },
@@ -2868,114 +3196,114 @@
         { model: "BP3530", newModel: "BP3530", originalCode: "", totalThickness: 35, filmThickness: 23, glueThickness: 12 },
         { model: "BP3613", newModel: "BP3613", originalCode: "", totalThickness: 36, filmThickness: 23, glueThickness: 13 },
         { model: "BP3830", newModel: "BP3830", originalCode: "", totalThickness: 38, filmThickness: 23, glueThickness: 15 },
-        { model: "BP3853", newModel: "BP3853", originalCode: "", totalThickness: 38, filmThickness: 25, glueThickness: 13 },
+        // { model: "BP3853", newModel: "BP3853", originalCode: "", totalThickness: 38, filmThickness: 25, glueThickness: 13 },
         { model: "BP3930", newModel: "BP3930", originalCode: "", totalThickness: 39, filmThickness: 23, glueThickness: 16 },
-        { model: "BP3951", newModel: "BP3951", originalCode: "", totalThickness: 39, filmThickness: 25, glueThickness: 14 },
-        { model: "BP3953", newModel: "BP3953", originalCode: "", totalThickness: 39, filmThickness: 25, glueThickness: 14 },
+        // { model: "BP3951", newModel: "BP3951", originalCode: "", totalThickness: 39, filmThickness: 25, glueThickness: 14 },
+        // { model: "BP3953", newModel: "BP3953", originalCode: "", totalThickness: 39, filmThickness: 25, glueThickness: 14 },
         { model: "BP4030", newModel: "BP4030", originalCode: "", totalThickness: 40, filmThickness: 24, glueThickness: 16 },
-        { model: "BP4051", newModel: "BP4051", originalCode: "", totalThickness: 40, filmThickness: 24, glueThickness: 16 },
-        { model: "BP4053", newModel: "BP4053", originalCode: "", totalThickness: 40, filmThickness: 25, glueThickness: 15 },
-        { model: "BP4071", newModel: "BP4071", originalCode: "", totalThickness: 40, filmThickness: 25, glueThickness: 15 },
+        // { model: "BP4051", newModel: "BP4051", originalCode: "", totalThickness: 40, filmThickness: 24, glueThickness: 16 },
+        // { model: "BP4053", newModel: "BP4053", originalCode: "", totalThickness: 40, filmThickness: 25, glueThickness: 15 },
+        // { model: "BP4071", newModel: "BP4071", originalCode: "", totalThickness: 40, filmThickness: 25, glueThickness: 15 },
         { model: "BP4230", newModel: "BP4230", originalCode: "", totalThickness: 42, filmThickness: 24, glueThickness: 18 },
-        { model: "BP4253", newModel: "BP4253", originalCode: "", totalThickness: 42, filmThickness: 25, glueThickness: 17 },
-        { model: "BP4353", newModel: "BP4353", originalCode: "", totalThickness: 43, filmThickness: 25, glueThickness: 18 },
+        // { model: "BP4253", newModel: "BP4253", originalCode: "", totalThickness: 42, filmThickness: 25, glueThickness: 17 },
+        // { model: "BP4353", newModel: "BP4353", originalCode: "", totalThickness: 43, filmThickness: 25, glueThickness: 18 },
         { model: "BP4412", newModel: "BP4412", originalCode: "", totalThickness: 44, filmThickness: 24, glueThickness: 20 },
-        { model: "BP4453", newModel: "BP4453", originalCode: "", totalThickness: 44, filmThickness: 28, glueThickness: 16 },
-        { model: "BP4473", newModel: "BP4473", originalCode: "", totalThickness: 44, filmThickness: 25, glueThickness: 19 },
-        { model: "BP4475", newModel: "BP4475", originalCode: "", totalThickness: 44, filmThickness: 28, glueThickness: 16 },
+        // { model: "BP4453", newModel: "BP4453", originalCode: "", totalThickness: 44, filmThickness: 28, glueThickness: 16 },
+        // { model: "BP4473", newModel: "BP4473", originalCode: "", totalThickness: 44, filmThickness: 25, glueThickness: 19 },
+        // { model: "BP4475", newModel: "BP4475", originalCode: "", totalThickness: 44, filmThickness: 28, glueThickness: 16 },
         { model: "BP4518", newModel: "BP4518", originalCode: "", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
         { model: "BP4530", newModel: "BP4530", originalCode: "", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
-        { model: "BP4553", newModel: "BP4553", originalCode: "", totalThickness: 45, filmThickness: 28, glueThickness: 17 },
-        { model: "BP4573", newModel: "BP4573", originalCode: "", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
-        { model: "BP4650", newModel: "BP4650", originalCode: "", totalThickness: 46, filmThickness: 28, glueThickness: 18 },
-        { model: "BP4673", newModel: "BP4673", originalCode: "", totalThickness: 46, filmThickness: 25, glueThickness: 21 },
-        { model: "BP4753", newModel: "BP4753", originalCode: "", totalThickness: 47, filmThickness: 30, glueThickness: 17 },
-        { model: "BP4853", newModel: "BP4853", originalCode: "", totalThickness: 48, filmThickness: 30, glueThickness: 18 },
-        { model: "BP4879", newModel: "BP4879", originalCode: "", totalThickness: 48, filmThickness: 25, glueThickness: 23 },
-        { model: "BP4951", newModel: "BP4951", originalCode: "", totalThickness: 49, filmThickness: 30, glueThickness: 19 },
-        { model: "BP4953", newModel: "BP4953", originalCode: "", totalThickness: 49, filmThickness: 30, glueThickness: 19 },
+        // { model: "BP4553", newModel: "BP4553", originalCode: "", totalThickness: 45, filmThickness: 28, glueThickness: 17 },
+        // { model: "BP4573", newModel: "BP4573", originalCode: "", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
+        // { model: "BP4650", newModel: "BP4650", originalCode: "", totalThickness: 46, filmThickness: 28, glueThickness: 18 },
+        // { model: "BP4673", newModel: "BP4673", originalCode: "", totalThickness: 46, filmThickness: 25, glueThickness: 21 },
+        // { model: "BP4753", newModel: "BP4753", originalCode: "", totalThickness: 47, filmThickness: 30, glueThickness: 17 },
+        // { model: "BP4853", newModel: "BP4853", originalCode: "", totalThickness: 48, filmThickness: 30, glueThickness: 18 },
+        // { model: "BP4879", newModel: "BP4879", originalCode: "", totalThickness: 48, filmThickness: 25, glueThickness: 23 },
+        // { model: "BP4951", newModel: "BP4951", originalCode: "", totalThickness: 49, filmThickness: 30, glueThickness: 19 },
+        // { model: "BP4953", newModel: "BP4953", originalCode: "", totalThickness: 49, filmThickness: 30, glueThickness: 19 },
         { model: "BP5031", newModel: "BP5031", originalCode: "", totalThickness: 50, filmThickness: 28, glueThickness: 22 },
-        { model: "BP5053", newModel: "BP5053", originalCode: "", totalThickness: 50, filmThickness: 30, glueThickness: 20 },
-        { model: "BP5073", newModel: "BP5073", originalCode: "", totalThickness: 50, filmThickness: 25, glueThickness: 25 },
-        { model: "BP5091", newModel: "BP5091", originalCode: "", totalThickness: 50, filmThickness: 25, glueThickness: 25 },
-        { model: "BP5253", newModel: "BP5253", originalCode: "", totalThickness: 52, filmThickness: 32, glueThickness: 20 },
+        // { model: "BP5053", newModel: "BP5053", originalCode: "", totalThickness: 50, filmThickness: 30, glueThickness: 20 },
+        // { model: "BP5073", newModel: "BP5073", originalCode: "", totalThickness: 50, filmThickness: 25, glueThickness: 25 },
+        // { model: "BP5091", newModel: "BP5091", originalCode: "", totalThickness: 50, filmThickness: 25, glueThickness: 25 },
+        // { model: "BP5253", newModel: "BP5253", originalCode: "", totalThickness: 52, filmThickness: 32, glueThickness: 20 },
         { model: "BP5312", newModel: "BP5312", originalCode: "", totalThickness: 53, filmThickness: 28, glueThickness: 25 },
         { model: "BP5330", newModel: "BP5330", originalCode: "", totalThickness: 53, filmThickness: 28, glueThickness: 25 },
-        { model: "BP5373", newModel: "BP5373", originalCode: "", totalThickness: 53, filmThickness: 28, glueThickness: 25 },
-        { model: "BP5375", newModel: "BP5375", originalCode: "", totalThickness: 53, filmThickness: 28, glueThickness: 25 },
-        { model: "BP5571", newModel: "BP5571", originalCode: "", totalThickness: 55, filmThickness: 28, glueThickness: 27 },
-        { model: "BP5653", newModel: "BP5653", originalCode: "", totalThickness: 56, filmThickness: 36, glueThickness: 20 },
-        { model: "BP6050", newModel: "BP6050", originalCode: "", totalThickness: 60, filmThickness: 42, glueThickness: 18 },
-        { model: "BP6071", newModel: "BP6071", originalCode: "", totalThickness: 60, filmThickness: 32, glueThickness: 28 },
-        { model: "BP6351", newModel: "BP6351", originalCode: "", totalThickness: 63, filmThickness: 38, glueThickness: 25 },
-        { model: "BP6353", newModel: "BP6353", originalCode: "", totalThickness: 63, filmThickness: 42, glueThickness: 21 },
+        // { model: "BP5373", newModel: "BP5373", originalCode: "", totalThickness: 53, filmThickness: 28, glueThickness: 25 },
+        // { model: "BP5375", newModel: "BP5375", originalCode: "", totalThickness: 53, filmThickness: 28, glueThickness: 25 },
+        // { model: "BP5571", newModel: "BP5571", originalCode: "", totalThickness: 55, filmThickness: 28, glueThickness: 27 },
+        // { model: "BP5653", newModel: "BP5653", originalCode: "", totalThickness: 56, filmThickness: 36, glueThickness: 20 },
+        // { model: "BP6050", newModel: "BP6050", originalCode: "", totalThickness: 60, filmThickness: 42, glueThickness: 18 },
+        // { model: "BP6071", newModel: "BP6071", originalCode: "", totalThickness: 60, filmThickness: 32, glueThickness: 28 },
+        // { model: "BP6351", newModel: "BP6351", originalCode: "", totalThickness: 63, filmThickness: 38, glueThickness: 25 },
+        // { model: "BP6353", newModel: "BP6353", originalCode: "", totalThickness: 63, filmThickness: 42, glueThickness: 21 },
         { model: "BP8510", newModel: "BP8510", originalCode: "", totalThickness: 85, filmThickness: 60, glueThickness: 25 },
-        { model: "BPA044-d", newModel: "BP4471", originalCode: "BT44C", totalThickness: 44, filmThickness: 25, glueThickness: 19 },
-        { model: "BPA045", newModel: "BP4570", originalCode: "BT45", totalThickness: 45, filmThickness: 24, glueThickness: 21 },
-        { model: "BPA045-d", newModel: "BP4571", originalCode: "BT45C", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
-        { model: "BPA045-dq", newModel: "BQ4571", originalCode: "BT45-CQ", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
-        { model: "BPA046-b", newModel: "BP4670", originalCode: "BT46", totalThickness: 46, filmThickness: 24, glueThickness: 22 },
-        { model: "BPA046-d", newModel: "BP4671", originalCode: "BT46C", totalThickness: 46, filmThickness: 25, glueThickness: 21 },
-        { model: "BPA046-dq", newModel: "BP4675", originalCode: "", totalThickness: 46, filmThickness: 25, glueThickness: 21 },
-        { model: "BPA046-zs23", newModel: "BP4677", originalCode: "", totalThickness: 46, filmThickness: 25, glueThickness: 21 },
-        { model: "BPA048", newModel: "BP4870", originalCode: "BT48", totalThickness: 48, filmThickness: 24, glueThickness: 24 },
-        { model: "BPA048-zp5", newModel: "BP4877", originalCode: "BT48C", totalThickness: 48, filmThickness: 25, glueThickness: 23 },
-        { model: "BPA050-c", newModel: "BP5070", originalCode: "BT50", totalThickness: 50, filmThickness: 24, glueThickness: 26 },
-        { model: "BPA050-cq", newModel: "BQ5070", originalCode: "BT50-Q", totalThickness: 50, filmThickness: 24, glueThickness: 26 },
-        { model: "BPA050-d", newModel: "BP5071", originalCode: "BT50C", totalThickness: 50, filmThickness: 25, glueThickness: 25 },
-        { model: "BPA050-dq", newModel: "BP5075", originalCode: "", totalThickness: 50, filmThickness: 25, glueThickness: 25 },
-        { model: "BPA053-c", newModel: "BP5370", originalCode: "BT53", totalThickness: 53, filmThickness: 28, glueThickness: 25 },
-        { model: "BPA053-cq", newModel: "BQ5370", originalCode: "BT53-Q", totalThickness: 53, filmThickness: 28, glueThickness: 25 },
-        { model: "BPA053-d", newModel: "BP5371", originalCode: "BT53C", totalThickness: 53, filmThickness: 28, glueThickness: 25 },
-        { model: "BPA056-b", newModel: "BP5670", originalCode: "BT56", totalThickness: 56, filmThickness: 28, glueThickness: 28 },
-        { model: "BPA056-zp5", newModel: "BP5677", originalCode: "BT56C", totalThickness: 56, filmThickness: 28, glueThickness: 28 },
-        { model: "BPA060-b", newModel: "BP6070", originalCode: "BT60B", totalThickness: 60, filmThickness: 32, glueThickness: 28 },
-        { model: "BPA060-bq", newModel: "BQ6070", originalCode: "BT60-Q", totalThickness: 60, filmThickness: 32, glueThickness: 28 },
-        { model: "BPA060-dq", newModel: "BQ6071", originalCode: "BT60-QC", totalThickness: 60, filmThickness: 32, glueThickness: 28 },
-        { model: "BPA062-b", newModel: "BP6270", originalCode: "BT62", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
-        { model: "BPA062-bq", newModel: "BQ6270", originalCode: "BT62-Q", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
-        { model: "BPA062-dq", newModel: "BQ6271", originalCode: "BT62-CQ", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
-        { model: "BPA063-b", newModel: "BP6370", originalCode: "BT63", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
-        { model: "BPA063-cq", newModel: "BQ6370", originalCode: "BT63-Q", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
-        { model: "BPA063-d", newModel: "BP6371", originalCode: "", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
-        { model: "BPA063-dq", newModel: "BQ6371", originalCode: "BT63-CQ", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
-        { model: "BPA064-bq", newModel: "BQ6470", originalCode: "BT64-Q", totalThickness: 64, filmThickness: 36, glueThickness: 28 },
-        { model: "BPA065-b", newModel: "BP6570", originalCode: "", totalThickness: 65, filmThickness: 40, glueThickness: 25 },
-        { model: "BPA065-cq", newModel: "BQ6570", originalCode: "BT65-Q", totalThickness: 65, filmThickness: 40, glueThickness: 25 },
-        { model: "BPA065-dq", newModel: "BQ6571", originalCode: "", totalThickness: 65, filmThickness: 40, glueThickness: 25 },
-        { model: "BPA067-bq", newModel: "BP6770", originalCode: "", totalThickness: 67, filmThickness: 40, glueThickness: 27 },
-        { model: "BPA067-dq", newModel: "BP6771", originalCode: "", totalThickness: 67, filmThickness: 40, glueThickness: 27 },
-        { model: "BPA070-b", newModel: "BP7070", originalCode: "BT70", totalThickness: 70, filmThickness: 42, glueThickness: 28 },
-        { model: "BPA080-b", newModel: "BP8070", originalCode: "BT80", totalThickness: 80, filmThickness: 50, glueThickness: 30 },
-        { model: "BPA080-bq", newModel: "BQ8070", originalCode: "", totalThickness: 80, filmThickness: 50, glueThickness: 30 },
-        { model: "BPA090-cq", newModel: "BQ9070", originalCode: "BT90-Q", totalThickness: 90, filmThickness: 63, glueThickness: 27 },
-        { model: "BPB038", newModel: "BP3850", originalCode: "B838", totalThickness: 38, filmThickness: 25, glueThickness: 13 },
-        { model: "BPB040", newModel: "BP4050", originalCode: "B840", totalThickness: 40, filmThickness: 25, glueThickness: 15 },
-        { model: "BPB042", newModel: "BP4250", originalCode: "B842", totalThickness: 42, filmThickness: 25, glueThickness: 17 },
-        { model: "BPB042-h", newModel: "BP4251", originalCode: "B842-SB", totalThickness: 42, filmThickness: 25, glueThickness: 17 },
-        { model: "BPB043", newModel: "BP4350", originalCode: "B843", totalThickness: 43, filmThickness: 25, glueThickness: 18 },
-        { model: "BPB044", newModel: "BP4450", originalCode: "B844", totalThickness: 44, filmThickness: 28, glueThickness: 16 },
-        { model: "BPB045", newModel: "BP4550", originalCode: "B845", totalThickness: 45, filmThickness: 28, glueThickness: 17 },
-        { model: "BPB045-f2", newModel: "BP4552", originalCode: "B845-G", totalThickness: 45, filmThickness: 24, glueThickness: 21 },
-        { model: "BPB047", newModel: "BP4750", originalCode: "B847", totalThickness: 47, filmThickness: 30, glueThickness: 17 },
-        { model: "BPB047-f", newModel: "BP4752", originalCode: "B847G", totalThickness: 47, filmThickness: 24, glueThickness: 23 },
-        { model: "BPB048", newModel: "BP4850", originalCode: "B848", totalThickness: 48, filmThickness: 30, glueThickness: 18 },
-        { model: "BPB048-f4", newModel: "BP4852", originalCode: "B848G", totalThickness: 48, filmThickness: 24, glueThickness: 24 },
-        { model: "BPB050", newModel: "BP5050", originalCode: "B850", totalThickness: 50, filmThickness: 30, glueThickness: 20 },
-        { model: "BPB050-e", newModel: "BP5051", originalCode: "", totalThickness: 50, filmThickness: 28, glueThickness: 22 },
-        { model: "BPB052", newModel: "BP5250", originalCode: "B852", totalThickness: 52, filmThickness: 32, glueThickness: 20 },
-        { model: "BPB056", newModel: "BP5650", originalCode: "", totalThickness: 56, filmThickness: 36, glueThickness: 20 },
-        { model: "BPB062-f2", newModel: "BP6250", originalCode: "B862G", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
-        { model: "BPB063", newModel: "BP6350", originalCode: "B863", totalThickness: 63, filmThickness: 42, glueThickness: 21 },
-        { model: "BPB063-f", newModel: "BP6352", originalCode: "B863G", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
-        { model: "BPB065-f", newModel: "BP6550", originalCode: "B865G", totalThickness: 65, filmThickness: 40, glueThickness: 25 },
-        { model: "BPB070-f2", newModel: "BP7050", originalCode: "B870G", totalThickness: 70, filmThickness: 45, glueThickness: 25 },
-        { model: "BPB072-f", newModel: "BP7250", originalCode: "B872G", totalThickness: 72, filmThickness: 45, glueThickness: 27 },
-        { model: "BPB076-e", newModel: "BP7651", originalCode: "", totalThickness: 76, filmThickness: 50, glueThickness: 26 },
-        { model: "BPB076-f", newModel: "BP7650", originalCode: "B876G", totalThickness: 76, filmThickness: 50, glueThickness: 26 },
-        { model: "BPB076-fq", newModel: "BQ7650", originalCode: "", totalThickness: 76, filmThickness: 50, glueThickness: 26 },
-        { model: "BPB078-f", newModel: "BP7850", originalCode: "", totalThickness: 78, filmThickness: 50, glueThickness: 28 },
-        { model: "BPB080-f", newModel: "BP8050", originalCode: "", totalThickness: 80, filmThickness: 50, glueThickness: 30 },
+        // { model: "BPA044-d", newModel: "BP4471", originalCode: "BT44C", totalThickness: 44, filmThickness: 25, glueThickness: 19 },
+        // { model: "BPA045", newModel: "BP4570", originalCode: "BT45", totalThickness: 45, filmThickness: 24, glueThickness: 21 },
+        // { model: "BPA045-d", newModel: "BP4571", originalCode: "BT45C", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
+        // { model: "BPA045-dq", newModel: "BQ4571", originalCode: "BT45-CQ", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
+        // { model: "BPA046-b", newModel: "BP4670", originalCode: "BT46", totalThickness: 46, filmThickness: 24, glueThickness: 22 },
+        // { model: "BPA046-d", newModel: "BP4671", originalCode: "BT46C", totalThickness: 46, filmThickness: 25, glueThickness: 21 },
+        // { model: "BPA046-dq", newModel: "BP4675", originalCode: "", totalThickness: 46, filmThickness: 25, glueThickness: 21 },
+        // { model: "BPA046-zs23", newModel: "BP4677", originalCode: "", totalThickness: 46, filmThickness: 25, glueThickness: 21 },
+        // { model: "BPA048", newModel: "BP4870", originalCode: "BT48", totalThickness: 48, filmThickness: 24, glueThickness: 24 },
+        // { model: "BPA048-zp5", newModel: "BP4877", originalCode: "BT48C", totalThickness: 48, filmThickness: 25, glueThickness: 23 },
+        // { model: "BPA050-c", newModel: "BP5070", originalCode: "BT50", totalThickness: 50, filmThickness: 24, glueThickness: 26 },
+        // { model: "BPA050-cq", newModel: "BQ5070", originalCode: "BT50-Q", totalThickness: 50, filmThickness: 24, glueThickness: 26 },
+        // { model: "BPA050-d", newModel: "BP5071", originalCode: "BT50C", totalThickness: 50, filmThickness: 25, glueThickness: 25 },
+        // { model: "BPA050-dq", newModel: "BP5075", originalCode: "", totalThickness: 50, filmThickness: 25, glueThickness: 25 },
+        // { model: "BPA053-c", newModel: "BP5370", originalCode: "BT53", totalThickness: 53, filmThickness: 28, glueThickness: 25 },
+        // { model: "BPA053-cq", newModel: "BQ5370", originalCode: "BT53-Q", totalThickness: 53, filmThickness: 28, glueThickness: 25 },
+        // { model: "BPA053-d", newModel: "BP5371", originalCode: "BT53C", totalThickness: 53, filmThickness: 28, glueThickness: 25 },
+        // { model: "BPA056-b", newModel: "BP5670", originalCode: "BT56", totalThickness: 56, filmThickness: 28, glueThickness: 28 },
+        // { model: "BPA056-zp5", newModel: "BP5677", originalCode: "BT56C", totalThickness: 56, filmThickness: 28, glueThickness: 28 },
+        // { model: "BPA060-b", newModel: "BP6070", originalCode: "BT60B", totalThickness: 60, filmThickness: 32, glueThickness: 28 },
+        // { model: "BPA060-bq", newModel: "BQ6070", originalCode: "BT60-Q", totalThickness: 60, filmThickness: 32, glueThickness: 28 },
+        // { model: "BPA060-dq", newModel: "BQ6071", originalCode: "BT60-QC", totalThickness: 60, filmThickness: 32, glueThickness: 28 },
+        // { model: "BPA062-b", newModel: "BP6270", originalCode: "BT62", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
+        // { model: "BPA062-bq", newModel: "BQ6270", originalCode: "BT62-Q", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
+        // { model: "BPA062-dq", newModel: "BQ6271", originalCode: "BT62-CQ", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
+        // { model: "BPA063-b", newModel: "BP6370", originalCode: "BT63", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
+        // { model: "BPA063-cq", newModel: "BQ6370", originalCode: "BT63-Q", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
+        // { model: "BPA063-d", newModel: "BP6371", originalCode: "", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
+        // { model: "BPA063-dq", newModel: "BQ6371", originalCode: "BT63-CQ", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
+        // { model: "BPA064-bq", newModel: "BQ6470", originalCode: "BT64-Q", totalThickness: 64, filmThickness: 36, glueThickness: 28 },
+        // { model: "BPA065-b", newModel: "BP6570", originalCode: "", totalThickness: 65, filmThickness: 40, glueThickness: 25 },
+        // { model: "BPA065-cq", newModel: "BQ6570", originalCode: "BT65-Q", totalThickness: 65, filmThickness: 40, glueThickness: 25 },
+        // { model: "BPA065-dq", newModel: "BQ6571", originalCode: "", totalThickness: 65, filmThickness: 40, glueThickness: 25 },
+        // { model: "BPA067-bq", newModel: "BP6770", originalCode: "", totalThickness: 67, filmThickness: 40, glueThickness: 27 },
+        // { model: "BPA067-dq", newModel: "BP6771", originalCode: "", totalThickness: 67, filmThickness: 40, glueThickness: 27 },
+        // { model: "BPA070-b", newModel: "BP7070", originalCode: "BT70", totalThickness: 70, filmThickness: 42, glueThickness: 28 },
+        // { model: "BPA080-b", newModel: "BP8070", originalCode: "BT80", totalThickness: 80, filmThickness: 50, glueThickness: 30 },
+        // { model: "BPA080-bq", newModel: "BQ8070", originalCode: "", totalThickness: 80, filmThickness: 50, glueThickness: 30 },
+        // { model: "BPA090-cq", newModel: "BQ9070", originalCode: "BT90-Q", totalThickness: 90, filmThickness: 63, glueThickness: 27 },
+        // { model: "BPB038", newModel: "BP3850", originalCode: "B838", totalThickness: 38, filmThickness: 25, glueThickness: 13 },
+        // { model: "BPB040", newModel: "BP4050", originalCode: "B840", totalThickness: 40, filmThickness: 25, glueThickness: 15 },
+        // { model: "BPB042", newModel: "BP4250", originalCode: "B842", totalThickness: 42, filmThickness: 25, glueThickness: 17 },
+        // { model: "BPB042-h", newModel: "BP4251", originalCode: "B842-SB", totalThickness: 42, filmThickness: 25, glueThickness: 17 },
+        // { model: "BPB043", newModel: "BP4350", originalCode: "B843", totalThickness: 43, filmThickness: 25, glueThickness: 18 },
+        // { model: "BPB044", newModel: "BP4450", originalCode: "B844", totalThickness: 44, filmThickness: 28, glueThickness: 16 },
+        // { model: "BPB045", newModel: "BP4550", originalCode: "B845", totalThickness: 45, filmThickness: 28, glueThickness: 17 },
+        // { model: "BPB045-f2", newModel: "BP4552", originalCode: "B845-G", totalThickness: 45, filmThickness: 24, glueThickness: 21 },
+        // { model: "BPB047", newModel: "BP4750", originalCode: "B847", totalThickness: 47, filmThickness: 30, glueThickness: 17 },
+        // { model: "BPB047-f", newModel: "BP4752", originalCode: "B847G", totalThickness: 47, filmThickness: 24, glueThickness: 23 },
+        // { model: "BPB048", newModel: "BP4850", originalCode: "B848", totalThickness: 48, filmThickness: 30, glueThickness: 18 },
+        // { model: "BPB048-f4", newModel: "BP4852", originalCode: "B848G", totalThickness: 48, filmThickness: 24, glueThickness: 24 },
+        // { model: "BPB050", newModel: "BP5050", originalCode: "B850", totalThickness: 50, filmThickness: 30, glueThickness: 20 },
+        // { model: "BPB050-e", newModel: "BP5051", originalCode: "", totalThickness: 50, filmThickness: 28, glueThickness: 22 },
+        // { model: "BPB052", newModel: "BP5250", originalCode: "B852", totalThickness: 52, filmThickness: 32, glueThickness: 20 },
+        // { model: "BPB056", newModel: "BP5650", originalCode: "", totalThickness: 56, filmThickness: 36, glueThickness: 20 },
+        // { model: "BPB062-f2", newModel: "BP6250", originalCode: "B862G", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
+        // { model: "BPB063", newModel: "BP6350", originalCode: "B863", totalThickness: 63, filmThickness: 42, glueThickness: 21 },
+        // { model: "BPB063-f", newModel: "BP6352", originalCode: "B863G", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
+        // { model: "BPB065-f", newModel: "BP6550", originalCode: "B865G", totalThickness: 65, filmThickness: 40, glueThickness: 25 },
+        // { model: "BPB070-f2", newModel: "BP7050", originalCode: "B870G", totalThickness: 70, filmThickness: 45, glueThickness: 25 },
+        // { model: "BPB072-f", newModel: "BP7250", originalCode: "B872G", totalThickness: 72, filmThickness: 45, glueThickness: 27 },
+        // { model: "BPB076-e", newModel: "BP7651", originalCode: "", totalThickness: 76, filmThickness: 50, glueThickness: 26 },
+        // { model: "BPB076-f", newModel: "BP7650", originalCode: "B876G", totalThickness: 76, filmThickness: 50, glueThickness: 26 },
+        // { model: "BPB076-fq", newModel: "BQ7650", originalCode: "", totalThickness: 76, filmThickness: 50, glueThickness: 26 },
+        // { model: "BPB078-f", newModel: "BP7850", originalCode: "", totalThickness: 78, filmThickness: 50, glueThickness: 28 },
+        // { model: "BPB080-f", newModel: "BP8050", originalCode: "", totalThickness: 80, filmThickness: 50, glueThickness: 30 },
         { model: "BPC034", newModel: "BP3410", originalCode: "B134、B134-w", totalThickness: 34, filmThickness: 24, glueThickness: 10 },
         { model: "BPC035", newModel: "BP3510", originalCode: "B135、B135-w、B135-y、B235", totalThickness: 35, filmThickness: 24, glueThickness: 11 },
         { model: "BPC036", newModel: "BP3610", originalCode: "B136、B136-w、B136-y、B236", totalThickness: 36, filmThickness: 24, glueThickness: 12 },
@@ -3125,37 +3453,37 @@
         { model: "BPC079-2", newModel: "BP7910", originalCode: "", totalThickness: 79, filmThickness: 50, glueThickness: 29 },
         { model: "BPC090", newModel: "BP9010", originalCode: "B190", totalThickness: 90, filmThickness: 63, glueThickness: 27 },
         { model: "BPC090-zd5", newModel: "BQ9030", originalCode: "B190-Q", totalThickness: 90, filmThickness: 63, glueThickness: 27 },
-        { model: "BPD042-4", newModel: "BP4290", originalCode: "B142A-4", totalThickness: 42, filmThickness: 25, glueThickness: 17 },
-        { model: "BPD043-4", newModel: "BP4390", originalCode: "B143A", totalThickness: 43, filmThickness: 25, glueThickness: 18 },
-        { model: "BPD045", newModel: "BP4590", originalCode: "B145A", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
-        { model: "BPD045-c", newModel: "BP4591", originalCode: "B145D", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
-        { model: "BPD047", newModel: "BP4790", originalCode: "B147A", totalThickness: 47, filmThickness: 25, glueThickness: 22 },
-        { model: "BPD048", newModel: "BP4890", originalCode: "B148A", totalThickness: 48, filmThickness: 28, glueThickness: 20 },
-        { model: "BPD050", newModel: "BP5090", originalCode: "B150A", totalThickness: 50, filmThickness: 28, glueThickness: 22 },
-        { model: "BPD055", newModel: "BP5590", originalCode: "B155A", totalThickness: 55, filmThickness: 32, glueThickness: 23 },
-        { model: "BPD055-q", newModel: "BP5591", originalCode: "", totalThickness: 55, filmThickness: 32, glueThickness: 23 },
-        { model: "BPD060", newModel: "BP6090", originalCode: "B160A", totalThickness: 60, filmThickness: 36, glueThickness: 24 },
-        { model: "BPD065", newModel: "BP6590", originalCode: "B165A", totalThickness: 65, filmThickness: 42, glueThickness: 23 },
-        { model: "BPD065-q", newModel: "BP6591", originalCode: "", totalThickness: 65, filmThickness: 42, glueThickness: 23 },
-        { model: "BPD090", newModel: "BP9090", originalCode: "B190A", totalThickness: 90, filmThickness: 63, glueThickness: 27 },
-        { model: "BPD090-q", newModel: "BP9091", originalCode: "", totalThickness: 90, filmThickness: 63, glueThickness: 27 },
-        { model: "BQ4573", newModel: "BQ4573", originalCode: "", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
+        // { model: "BPD042-4", newModel: "BP4290", originalCode: "B142A-4", totalThickness: 42, filmThickness: 25, glueThickness: 17 },
+        // { model: "BPD043-4", newModel: "BP4390", originalCode: "B143A", totalThickness: 43, filmThickness: 25, glueThickness: 18 },
+        // { model: "BPD045", newModel: "BP4590", originalCode: "B145A", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
+        // { model: "BPD045-c", newModel: "BP4591", originalCode: "B145D", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
+        // { model: "BPD047", newModel: "BP4790", originalCode: "B147A", totalThickness: 47, filmThickness: 25, glueThickness: 22 },
+        // { model: "BPD048", newModel: "BP4890", originalCode: "B148A", totalThickness: 48, filmThickness: 28, glueThickness: 20 },
+        // { model: "BPD050", newModel: "BP5090", originalCode: "B150A", totalThickness: 50, filmThickness: 28, glueThickness: 22 },
+        // { model: "BPD055", newModel: "BP5590", originalCode: "B155A", totalThickness: 55, filmThickness: 32, glueThickness: 23 },
+        // { model: "BPD055-q", newModel: "BP5591", originalCode: "", totalThickness: 55, filmThickness: 32, glueThickness: 23 },
+        // { model: "BPD060", newModel: "BP6090", originalCode: "B160A", totalThickness: 60, filmThickness: 36, glueThickness: 24 },
+        // { model: "BPD065", newModel: "BP6590", originalCode: "B165A", totalThickness: 65, filmThickness: 42, glueThickness: 23 },
+        // { model: "BPD065-q", newModel: "BP6591", originalCode: "", totalThickness: 65, filmThickness: 42, glueThickness: 23 },
+        // { model: "BPD090", newModel: "BP9090", originalCode: "B190A", totalThickness: 90, filmThickness: 63, glueThickness: 27 },
+        // { model: "BPD090-q", newModel: "BP9091", originalCode: "", totalThickness: 90, filmThickness: 63, glueThickness: 27 },
+        // { model: "BQ4573", newModel: "BQ4573", originalCode: "", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
         { model: "BQ4610", newModel: "BQ4610", originalCode: "", totalThickness: 46, filmThickness: 25, glueThickness: 21 },
-        { model: "BQ4871", newModel: "BQ4871", originalCode: "", totalThickness: 48, filmThickness: 25, glueThickness: 23 },
+        // { model: "BQ4871", newModel: "BQ4871", originalCode: "", totalThickness: 48, filmThickness: 25, glueThickness: 23 },
         { model: "BQ5013", newModel: "BQ5013", originalCode: "", totalThickness: 50, filmThickness: 25, glueThickness: 25 },
         { model: "BQ5230", newModel: "BQ5230", originalCode: "", totalThickness: 52, filmThickness: 28, glueThickness: 24 },
         { model: "BQ5512", newModel: "BQ5512", originalCode: "", totalThickness: 55, filmThickness: 30, glueThickness: 25 },
-        { model: "BQ5570", newModel: "BQ5570", originalCode: "", totalThickness: 55, filmThickness: 28, glueThickness: 27 },
-        { model: "BQ5571", newModel: "BQ5571", originalCode: "", totalThickness: 55, filmThickness: 28, glueThickness: 27 },
-        { model: "BQ5576", newModel: "BQ5576", originalCode: "", totalThickness: 55, filmThickness: 36, glueThickness: 19 },
-        { model: "BQ5676", newModel: "BQ5676", originalCode: "", totalThickness: 56, filmThickness: 36, glueThickness: 20 },
+        // { model: "BQ5570", newModel: "BQ5570", originalCode: "", totalThickness: 55, filmThickness: 28, glueThickness: 27 },
+        // { model: "BQ5571", newModel: "BQ5571", originalCode: "", totalThickness: 55, filmThickness: 28, glueThickness: 27 },
+        // { model: "BQ5576", newModel: "BQ5576", originalCode: "", totalThickness: 55, filmThickness: 36, glueThickness: 19 },
+        // { model: "BQ5676", newModel: "BQ5676", originalCode: "", totalThickness: 56, filmThickness: 36, glueThickness: 20 },
         { model: "BQ5710", newModel: "BQ5710", originalCode: "", totalThickness: 57, filmThickness: 36, glueThickness: 21 },
-        { model: "BQ5870", newModel: "BQ5870", originalCode: "", totalThickness: 58, filmThickness: 32, glueThickness: 26 },
-        { model: "BQ5876", newModel: "BQ5876", originalCode: "", totalThickness: 58, filmThickness: 38, glueThickness: 20 },
-        { model: "BQ5976", newModel: "BQ5976", originalCode: "", totalThickness: 59, filmThickness: 38, glueThickness: 21 },
-        { model: "BQ6476", newModel: "BQ6476", originalCode: "", totalThickness: 64, filmThickness: 38, glueThickness: 26 },
-        { model: "BQ6576", newModel: "BQ6576", originalCode: "", totalThickness: 65, filmThickness: 38, glueThickness: 27 },
-        { model: "BQ6577", newModel: "BQ6577", originalCode: "", totalThickness: 65, filmThickness: 38, glueThickness: 27 },
+        // { model: "BQ5870", newModel: "BQ5870", originalCode: "", totalThickness: 58, filmThickness: 32, glueThickness: 26 },
+        // { model: "BQ5876", newModel: "BQ5876", originalCode: "", totalThickness: 58, filmThickness: 38, glueThickness: 20 },
+        // { model: "BQ5976", newModel: "BQ5976", originalCode: "", totalThickness: 59, filmThickness: 38, glueThickness: 21 },
+        // { model: "BQ6476", newModel: "BQ6476", originalCode: "", totalThickness: 64, filmThickness: 38, glueThickness: 26 },
+        // { model: "BQ6576", newModel: "BQ6576", originalCode: "", totalThickness: 65, filmThickness: 38, glueThickness: 27 },
+        // { model: "BQ6577", newModel: "BQ6577", originalCode: "", totalThickness: 65, filmThickness: 38, glueThickness: 27 },
         { model: "BQ6810", newModel: "BQ6810", originalCode: "", totalThickness: 68, filmThickness: 42, glueThickness: 26 },
         { model: "BQ6830", newModel: "BQ6830", originalCode: "", totalThickness: 68, filmThickness: 42, glueThickness: 26 },
         { model: "BQ9031", newModel: "BQ9031", originalCode: "", totalThickness: 90, filmThickness: 63, glueThickness: 27 },
@@ -3172,52 +3500,52 @@
         { model: "BWC065", newModel: "BN6510", originalCode: "BN65", totalThickness: 65, filmThickness: 38, glueThickness: 27 },
         { model: "BWC066-19", newModel: "BN6610", originalCode: "BN66-Q", totalThickness: 66, filmThickness: 38, glueThickness: 28 },
         { model: "BWC078-19", newModel: "BN7810", originalCode: "BN78-Q", totalThickness: 78, filmThickness: 50, glueThickness: 28 },
-        { model: "BWD063-21", newModel: "BN6391", originalCode: "", totalThickness: 63, filmThickness: 38, glueThickness: 25 },
-        { model: "BWD063-q", newModel: "BN6390", originalCode: "BN63C-Q", totalThickness: 63, filmThickness: 38, glueThickness: 25 },
-        { model: "BWD087-d", newModel: "BN8790", originalCode: "", totalThickness: 87, filmThickness: 60, glueThickness: 27 },
+        // { model: "BWD063-21", newModel: "BN6391", originalCode: "", totalThickness: 63, filmThickness: 38, glueThickness: 25 },
+        // { model: "BWD063-q", newModel: "BN6390", originalCode: "BN63C-Q", totalThickness: 63, filmThickness: 38, glueThickness: 25 },
+        // { model: "BWD087-d", newModel: "BN8790", originalCode: "", totalThickness: 87, filmThickness: 60, glueThickness: 27 },
         { model: "BX5010", newModel: "BX5010", originalCode: "", totalThickness: 50, filmThickness: 27, glueThickness: 23 },
         { model: "BXC048", newModel: "BX4810", originalCode: "B748", totalThickness: 48, filmThickness: 25, glueThickness: 23 },
         { model: "BY4210", newModel: "BY4210", originalCode: "", totalThickness: 42, filmThickness: 24, glueThickness: 18 },
         { model: "BY4330", newModel: "BY4330", originalCode: "", totalThickness: 43, filmThickness: 24, glueThickness: 19 },
         { model: "BY4514", newModel: "BY4514", originalCode: "", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
-        { model: "BY4553", newModel: "BY4553", originalCode: "", totalThickness: 45, filmThickness: 28, glueThickness: 17 },
-        { model: "BY4570", newModel: "BY4570", originalCode: "", totalThickness: 45, filmThickness: 24, glueThickness: 21 },
+        // { model: "BY4553", newModel: "BY4553", originalCode: "", totalThickness: 45, filmThickness: 28, glueThickness: 17 },
+        // { model: "BY4570", newModel: "BY4570", originalCode: "", totalThickness: 45, filmThickness: 24, glueThickness: 21 },
         { model: "BY4630", newModel: "BY4630", originalCode: "", totalThickness: 46, filmThickness: 25, glueThickness: 21 },
         { model: "BY4832", newModel: "BY4832", originalCode: "", totalThickness: 48, filmThickness: 25, glueThickness: 23 },
         { model: "BY4833", newModel: "BY4833", originalCode: "", totalThickness: 48, filmThickness: 25, glueThickness: 23 },
-        { model: "BY4853", newModel: "BY4853", originalCode: "", totalThickness: 48, filmThickness: 30, glueThickness: 18 },
+        // { model: "BY4853", newModel: "BY4853", originalCode: "", totalThickness: 48, filmThickness: 30, glueThickness: 18 },
         { model: "BY5011", newModel: "BY5011", originalCode: "", totalThickness: 50, filmThickness: 28, glueThickness: 22 },
-        { model: "BY5050", newModel: "BY5050", originalCode: "", totalThickness: 50, filmThickness: 30, glueThickness: 20 },
-        { model: "BY5070", newModel: "BY5070", originalCode: "", totalThickness: 50, filmThickness: 24, glueThickness: 26 },
-        { model: "BY5071", newModel: "BY5071", originalCode: "", totalThickness: 50, filmThickness: 25, glueThickness: 25 },
-        { model: "BY5271", newModel: "BY5271", originalCode: "", totalThickness: 52, filmThickness: 28, glueThickness: 24 },
-        { model: "BY5571", newModel: "BY5571", originalCode: "", totalThickness: 55, filmThickness: 28, glueThickness: 27 },
-        { model: "BY6051", newModel: "BY6051", originalCode: "", totalThickness: 60, filmThickness: 42, glueThickness: 18 },
-        { model: "BY6053", newModel: "BY6053", originalCode: "", totalThickness: 60, filmThickness: 42, glueThickness: 18 },
-        { model: "BY6071", newModel: "BY6071", originalCode: "", totalThickness: 60, filmThickness: 32, glueThickness: 28 },
-        { model: "BY6272", newModel: "BY6272", originalCode: "", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
+        // { model: "BY5050", newModel: "BY5050", originalCode: "", totalThickness: 50, filmThickness: 30, glueThickness: 20 },
+        // { model: "BY5070", newModel: "BY5070", originalCode: "", totalThickness: 50, filmThickness: 24, glueThickness: 26 },
+        // { model: "BY5071", newModel: "BY5071", originalCode: "", totalThickness: 50, filmThickness: 25, glueThickness: 25 },
+        // { model: "BY5271", newModel: "BY5271", originalCode: "", totalThickness: 52, filmThickness: 28, glueThickness: 24 },
+        // { model: "BY5571", newModel: "BY5571", originalCode: "", totalThickness: 55, filmThickness: 28, glueThickness: 27 },
+        // { model: "BY6051", newModel: "BY6051", originalCode: "", totalThickness: 60, filmThickness: 42, glueThickness: 18 },
+        // { model: "BY6053", newModel: "BY6053", originalCode: "", totalThickness: 60, filmThickness: 42, glueThickness: 18 },
+        // { model: "BY6071", newModel: "BY6071", originalCode: "", totalThickness: 60, filmThickness: 32, glueThickness: 28 },
+        // { model: "BY6272", newModel: "BY6272", originalCode: "", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
         { model: "BY6312", newModel: "BY6312", originalCode: "", totalThickness: 63, filmThickness: 38, glueThickness: 25 },
-        { model: "BY6353", newModel: "BY6353", originalCode: "", totalThickness: 63, filmThickness: 42, glueThickness: 21 },
-        { model: "BY6372", newModel: "BY6372", originalCode: "", totalThickness: 63, filmThickness: 38, glueThickness: 25 },
-        { model: "BY6373", newModel: "BY6373", originalCode: "", totalThickness: 63, filmThickness: 38, glueThickness: 25 },
-        { model: "BY6576", newModel: "BY6576", originalCode: "", totalThickness: 65, filmThickness: 38, glueThickness: 27 },
-        { model: "BY6578", newModel: "BY6578", originalCode: "", totalThickness: 65, filmThickness: 38, glueThickness: 27 },
+        // { model: "BY6353", newModel: "BY6353", originalCode: "", totalThickness: 63, filmThickness: 42, glueThickness: 21 },
+        // { model: "BY6372", newModel: "BY6372", originalCode: "", totalThickness: 63, filmThickness: 38, glueThickness: 25 },
+        // { model: "BY6373", newModel: "BY6373", originalCode: "", totalThickness: 63, filmThickness: 38, glueThickness: 25 },
+        // { model: "BY6576", newModel: "BY6576", originalCode: "", totalThickness: 65, filmThickness: 38, glueThickness: 27 },
+        // { model: "BY6578", newModel: "BY6578", originalCode: "", totalThickness: 65, filmThickness: 38, glueThickness: 27 },
         { model: "BY6810", newModel: "BY6810", originalCode: "", totalThickness: 68, filmThickness: 42, glueThickness: 26 },
-        { model: "BYA053-dq", newModel: "BY5371", originalCode: "", totalThickness: 53, filmThickness: 28, glueThickness: 25 },
-        { model: "BYA060-b", newModel: "BY6070", originalCode: "B660B", totalThickness: 60, filmThickness: 32, glueThickness: 28 },
-        { model: "BYA062-b", newModel: "BY6270", originalCode: "B662B", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
-        { model: "BYA062-s", newModel: "BY6271", originalCode: "B662BS", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
-        { model: "BYA062-s13", newModel: "BY6273", originalCode: "B662-Q", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
-        { model: "BYA063-d", newModel: "BY6375", originalCode: "", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
-        { model: "BYA063-dq", newModel: "BY6371", originalCode: "", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
-        { model: "BYA063-s", newModel: "BY6377", originalCode: "", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
-        { model: "BYA063-s13", newModel: "BY6370", originalCode: "B663B", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
-        { model: "BYA065-zs18", newModel: "BY6579", originalCode: "B665B", totalThickness: 65, filmThickness: 40, glueThickness: 25 },
-        { model: "BYB040", newModel: "BY4050", originalCode: "B640-R", totalThickness: 40, filmThickness: 25, glueThickness: 15 },
-        { model: "BYB040-s", newModel: "BY4051", originalCode: "B640-SR", totalThickness: 40, filmThickness: 25, glueThickness: 15 },
-        { model: "BYB045-s", newModel: "BY4551", originalCode: "B645-R", totalThickness: 45, filmThickness: 28, glueThickness: 17 },
-        { model: "BYB048", newModel: "BY4850", originalCode: "B648-R", totalThickness: 48, filmThickness: 30, glueThickness: 18 },
-        { model: "BYB063-s", newModel: "BY6351", originalCode: "", totalThickness: 63, filmThickness: 42, glueThickness: 21 },
+        // { model: "BYA053-dq", newModel: "BY5371", originalCode: "", totalThickness: 53, filmThickness: 28, glueThickness: 25 },
+        // { model: "BYA060-b", newModel: "BY6070", originalCode: "B660B", totalThickness: 60, filmThickness: 32, glueThickness: 28 },
+        // { model: "BYA062-b", newModel: "BY6270", originalCode: "B662B", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
+        // { model: "BYA062-s", newModel: "BY6271", originalCode: "B662BS", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
+        // { model: "BYA062-s13", newModel: "BY6273", originalCode: "B662-Q", totalThickness: 62, filmThickness: 36, glueThickness: 26 },
+        // { model: "BYA063-d", newModel: "BY6375", originalCode: "", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
+        // { model: "BYA063-dq", newModel: "BY6371", originalCode: "", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
+        // { model: "BYA063-s", newModel: "BY6377", originalCode: "", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
+        // { model: "BYA063-s13", newModel: "BY6370", originalCode: "B663B", totalThickness: 63, filmThickness: 36, glueThickness: 27 },
+        // { model: "BYA065-zs18", newModel: "BY6579", originalCode: "B665B", totalThickness: 65, filmThickness: 40, glueThickness: 25 },
+        // { model: "BYB040", newModel: "BY4050", originalCode: "B640-R", totalThickness: 40, filmThickness: 25, glueThickness: 15 },
+        // { model: "BYB040-s", newModel: "BY4051", originalCode: "B640-SR", totalThickness: 40, filmThickness: 25, glueThickness: 15 },
+        // { model: "BYB045-s", newModel: "BY4551", originalCode: "B645-R", totalThickness: 45, filmThickness: 28, glueThickness: 17 },
+        // { model: "BYB048", newModel: "BY4850", originalCode: "B648-R", totalThickness: 48, filmThickness: 30, glueThickness: 18 },
+        // { model: "BYB063-s", newModel: "BY6351", originalCode: "", totalThickness: 63, filmThickness: 42, glueThickness: 21 },
         { model: "BYC035", newModel: "BY3510", originalCode: "B635", totalThickness: 35, filmThickness: 24, glueThickness: 11 },
         { model: "BYC038", newModel: "BY3810", originalCode: "B638", totalThickness: 38, filmThickness: 24, glueThickness: 14 },
         { model: "BYC039", newModel: "BY3910", originalCode: "B639", totalThickness: 39, filmThickness: 24, glueThickness: 15 },
@@ -3272,13 +3600,13 @@
         { model: "BYC067", newModel: "BY6710", originalCode: "B667", totalThickness: 67, filmThickness: 42, glueThickness: 25 },
         { model: "BYC070", newModel: "BY7010", originalCode: "B670", totalThickness: 70, filmThickness: 42, glueThickness: 28 },
         { model: "BYC070-b", newModel: "BY7012", originalCode: "", totalThickness: 70, filmThickness: 42, glueThickness: 28 },
-        { model: "Bp400301", newModel: "Bp400301", originalCode: "", totalThickness: 40, filmThickness: 40, glueThickness: 0 },
-        { model: "R-BP3870", newModel: "R-BP3870", originalCode: "", totalThickness: 38, filmThickness: 25, glueThickness: 13 },
-        { model: "R-BPB040", newModel: "R-BPB040", originalCode: "", totalThickness: 40, filmThickness: 25, glueThickness: 15 },
-        { model: "R-BPB045", newModel: "R-BPB045", originalCode: "", totalThickness: 45, filmThickness: 28, glueThickness: 17 },
+        // { model: "Bp400301", newModel: "Bp400301", originalCode: "", totalThickness: 40, filmThickness: 40, glueThickness: 0 },
+        // { model: "R-BP3870", newModel: "R-BP3870", originalCode: "", totalThickness: 38, filmThickness: 25, glueThickness: 13 },
+        // { model: "R-BPB040", newModel: "R-BPB040", originalCode: "", totalThickness: 40, filmThickness: 25, glueThickness: 15 },
+        // { model: "R-BPB045", newModel: "R-BPB045", originalCode: "", totalThickness: 45, filmThickness: 28, glueThickness: 17 },
         { model: "R-BPC040", newModel: "R-BPC040", originalCode: "", totalThickness: 40, filmThickness: 24, glueThickness: 16 },
         { model: "R-BPC045-b", newModel: "R-BPC045-b", originalCode: "", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
-        { model: "R-BPD045", newModel: "R-BPD045", originalCode: "", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
+        // { model: "R-BPD045", newModel: "R-BPD045", originalCode: "", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
         { model: "R-BYC050", newModel: "R-BYC050", originalCode: "", totalThickness: 50, filmThickness: 28, glueThickness: 22 },
     ];
     function updatePackingQuantity() {
@@ -3412,75 +3740,33 @@
                 };
                 optionsList.appendChild(li);
             });
+            const additionalMCodes = productDataM.flatMap(item => {
+                return [
+                    { text: item.model, code: item.model },
+                ];
+            }).filter(({ text }) => text.toLowerCase().includes(filter));
 
-            optionsList.style.display = matchedCodes.length > 0 || additionalCodes.length > 0 || additionalPvcCodes.length > 0 ||additionalCrmCodes.length > 0 || additionalGgCodes.length > 0 ? 'block' : 'none'; // 显示或隐藏下拉选项
+            additionalMCodes.forEach(({ text, code }) => {
+                const li = document.createElement('li');
+                li.textContent = text;
+                li.onclick = () => {
+                    input.value = code; // 设置输入框的值
+                    updateThickness(formType); // 更新厚度
+                    optionsList.style.display = 'none'; // 隐藏下拉选项
+                    if (formType === 'semiFinished') {
+                        calculateSemi();
+                    } else {
+                        calculateFinished();
+                    }
+                };
+                optionsList.appendChild(li);
+            });
+
+            optionsList.style.display = matchedCodes.length > 0 || additionalCodes.length > 0 || additionalPvcCodes.length > 0 ||additionalCrmCodes.length > 0 || additionalGgCodes.length > 0 ? 'block' : 'none'|| additionalMCodes.length > 0 ? 'block' : 'none'; // 显示或隐藏下拉选项
         } else {
             optionsList.style.display = 'none'; // 输入框为空时隐藏下拉选项
         }
     }
-
-    // 新定义的过滤函数
-    function calculateFabricSemi() {
-        const code = document.getElementById('codeFabricSemi').value.trim(); // 去掉前后空格
-        // 如果代码为空，清空结果并返回
-        if (!code) {
-            document.getElementById('grossWeightFabricSemi').textContent = '单卷净重(kg): ';
-            document.getElementById('resultsFabricSemi').textContent = '单卷毛重(kg): ';
-            document.getElementById('volumeFabricSemi').textContent = '单卷体积(m³): ';
-            return;
-        }
-
-        // 在 productDataBuJiSum 中查找对应的 totalThickness
-        const selectedProduct = productDataBuJiSum.find(item => item.originalCode === code || item.model === code || item.newModel === code);
-        const tapeWeightPerSquareMeter = selectedProduct ? selectedProduct.totalThickness : 0; // 获取对应的胶带总厚度
-        if (!selectedProduct) {
-            document.getElementById('grossWeightFabricSemi').textContent = '单卷净重(kg): ';
-            document.getElementById('resultsFabricSemi').textContent = '单卷毛重(kg): ';
-            document.getElementById('volumeFabricSemi').textContent = '单卷体积(m³): ';
-            return;
-        }
-        const width = parseFloat(document.getElementById('widthFabricSemi').value);
-        const length = parseFloat(document.getElementById('lengthFabricSemi').value);
-
-        // 计算单卷净重
-        const netWeight = (width * length / 1000 * tapeWeightPerSquareMeter / 1000);
-
-        // 计算单卷毛重
-        const innerDiameter = document.getElementById('innerDiameterFabricSemi').value;
-        const thicknessFabricSemi = document.getElementById('thicknessFabricSemi').value;
-
-        const weights = {
-            "77_3.0": 0.565714285714286,
-            // 其他纸管厚度组合的重量
-        };
-
-        const key = `${innerDiameter}_${thicknessFabricSemi}`;
-        const perMeterPaperTubeWeight = weights[key];
-
-        if (perMeterPaperTubeWeight === undefined) {
-            alert('无效的纸管厚度组合');
-            return;
-        }
-
-        const paperTubeWeight = (perMeterPaperTubeWeight * width) / 1000;
-        const totalWeight = netWeight + 3;
-
-        // 计算单卷体积
-        const paperTubeVolume = Math.PI * Math.pow((77 / 2 / 1000 + thicknessFabricSemi / 1000), 2) * (width / 1000);
-        const tapeVolume = (width * length / 1000) * (tapeWeightPerSquareMeter / 1000000);
-        const totalVolume = paperTubeVolume + tapeVolume;
-        const motherRollDiameter = Math.sqrt(totalVolume * 1000 / (width * Math.PI)) * 2;
-        const overallVolume = Math.pow(motherRollDiameter, 2) * (width / 1000);
-
-        document.getElementById('grossWeightFabricSemi').textContent = `单卷净重(kg): ${netWeight.toFixed(2)}`;
-        document.getElementById('resultsFabricSemi').textContent = `单卷毛重(kg): ${totalWeight.toFixed(2)}`;
-        document.getElementById('volumeFabricSemi').textContent = `单卷体积(m³): ${overallVolume.toFixed(2)}`;
-
-    }
-    document.getElementById('codeFabricSemi').addEventListener('input', () => {
-        filterBuJiOptions(); // 先执行过滤以更新选项
-        calculateFabricSemi(); // 然后计算结果
-    });
     function getThicknessByCode(code) {
         const product = productData.find(item => {
             // 检查model和newModel的匹配
@@ -3500,8 +3786,20 @@
         if (product) {
             const a1 = product.filmThickness; // 获取filmThickness
             const a2 = product.glueThickness;  // 获取glueThickness
-            return { a1, a2 }; // 返回厚度
-        } else {
+            const a3 = product.totalThickness;
+            return { a1, a2,a3 }; // 返回厚度
+        }
+        // 如果在 productDataYou 中找到相应的产品
+        const productYou = productDataYou.find(item => {
+            return item.model === code || item.newModel === code || item.originalCode === code;
+        });
+
+        // 如果找到对应的 productDataYou 的产品
+        if (productYou) {
+            return { a1: productYou.filmThickness, a2: productYou.glueThickness }; // 返回相应的厚度
+        }
+
+        else {
             // 如果没有找到相应的代码，可以返回默认值或抛出错误
             console.error('无效的代码，无法找到对应的厚度');
             return { a1: null, a2: null };
@@ -3550,6 +3848,9 @@
         const matchedProductGg = productDataGg.find(item =>
             item.model === code
         );
+        const matchedProductM = productDataM.find(item =>
+            item.model === code
+        );
 
         if (matchedProduct !== undefined) {
             thicknessInput.value = matchedProduct.totalThickness;
@@ -3561,6 +3862,8 @@
             thicknessInput.value = matchedProductCrm.totalThickness;
         }else if(matchedProductGg!== undefined){
             thicknessInput.value = matchedProductGg.totalThickness;
+        }else if(matchedProductM!== undefined){
+            thicknessInput.value = matchedProductM.totalThickness;
         }
         else {
             thicknessInput.value = ''; // 无法找到对应厚度时清空
@@ -3596,9 +3899,11 @@
         const fabricSemiFinishedForm = document.getElementById('fabricSemiFinishedForm'); // 布基半成品
         const fabricFinishedForm = document.getElementById('fabricFinishedForm');
         const navbar = document.getElementById('navbar');
-        // 判断当前选择的包装方式
+        // 同步更新产品类型选择框的值
+        if (activeForm) {
+            productTypeSelect.value = activeForm;
+        }
         const selectedValue = productTypeSelect.value;
-
         // 根据选择的包装方式来控制显示的表单
         if (activeForm === 'semiFinished' || (activeForm === '' && selectedValue === 'semiFinished')) {
             semiFinishedForm.style.display = 'block';
@@ -3609,7 +3914,7 @@
             packingQuantityContainer.style.display = 'none';
             totalBoxesContainer.type = 'hidden';
             totalBoxesContainer.style.display = 'block';
-            navbar.textContent = '当前计算模式: 半成品计算(水胶OPP，布基，PVC)';
+            navbar.textContent = '当前计算模式: 半成品计算(OPP，布基，PVC，美纹纸)';
         } else if (activeForm === 'finished' ||
             (activeForm === '' && (selectedValue === 'finished' || selectedValue === 'oppBag'|| selectedValue === 'pvc'|| selectedValue === '夹卡'|| selectedValue === 'multipleBoxes'|| selectedValue === 'nakedRandomPVC'|| selectedValue === 'nakedRandomCRM'||selectedValue === 'nakedRandomGG'))) {
             semiFinishedForm.style.display = 'none';
@@ -3620,7 +3925,7 @@
             totalBoxesContainer.style.display = 'block';
             fabricSemiFinishedForm.style.display = 'none';
             fabricFinishedForm.style.display = 'none';
-            navbar.textContent = '当前计算模式: 成品计算(水胶OPP，布基，PVC)';
+            navbar.textContent = '当前计算模式: 成品计算(OPP，布基，PVC，美纹纸)';
         } else if (activeForm === 'fabricSemiFinished' || (activeForm === '' && selectedValue === 'fabricSemiFinished')) {
             semiFinishedForm.style.display = 'none';
             finishedForm.style.display = 'none';
@@ -3677,7 +3982,7 @@
             navbar.style.display = 'block';
             fabricSemiFinishedForm.style.display = 'none';
             fabricFinishedForm.style.display = 'none';
-            navbar.textContent = '当前计算模式: 裸装无规则入箱（PVC）'; // 更新导航文本
+            navbar.textContent = '当前计算模式: 裸装无规则入箱（PVC，美纹纸）'; // 更新导航文本
             // 隐藏方向卷数输入框，显示装箱数输入框
             packingInfo.style.display = 'none'; // 隐藏长宽高方向卷数
             heightInfo.style.display = 'none';
@@ -3710,7 +4015,10 @@
         const foundProductGg = productDataGg.find(item =>
             item.model === code
         );
-        if (!thickness&&!thicknessProduct&&!foundProductPvc) {
+        const foundProductM = productDataM.find(item =>
+            item.model === code
+        );
+        if (!thickness&&!thicknessProduct&&!foundProductPvc&&!foundProductM) {
             document.getElementById('grossWeightSemi').textContent = '单卷净重(kg): ';
             document.getElementById('resultsSemi').textContent = '单卷毛重(kg): ';
             document.getElementById('volumeSemi').textContent = '单卷体积(m³): ';
@@ -3724,8 +4032,11 @@
             document.getElementById('tapeWeightPerSquareMeter1Semi').value = foundProductCrm.totalThickness;
         }else if(foundProductGg){
             document.getElementById('tapeWeightPerSquareMeter1Semi').value = foundProductGg.totalThickness;
-        } else {
-        document.getElementById('tapeWeightPerSquareMeter1Semi').value = thickness;} // 将厚度填入输入框
+        }else if(foundProductM){
+            document.getElementById('tapeWeightPerSquareMeter1Semi').value = foundProductM.totalThickness;
+        }
+        else {
+            document.getElementById('tapeWeightPerSquareMeter1Semi').value = thickness;} // 将厚度填入输入框
 
         const width = parseFloat(document.getElementById('widthSemi').value);
         const length = parseFloat(document.getElementById('lengthSemi').value);
@@ -3733,12 +4044,20 @@
         const thicknessSemi = document.getElementById('thicknessSemi').value;
 
         const area = (width * length) / 1000; // 转换为平方米
-        const { a1, a2 } = getThicknessByCode(code); // 获取 filmThickness 和 glueThickness
+        const { a1, a2, a3 } = getThicknessByCode(code); // 获取 filmThickness 和 glueThickness
         const foundProduct = productDataBuJiSum.find(item =>
             item.model === code ||
             item.newModel === code ||
             item.originalCode === code
         );
+        const foundProductYou = productDataYou.find(item =>
+            item.model === code ||
+            item.newModel === code ||
+            item.originalCode === code
+        );
+        // const foundProductM = productDataM.find(item =>
+        //     item.code === code
+        // );
 
         let tapeWeightPerSquareMeter,totalTapeWeight;
         if (foundProduct) {
@@ -3747,11 +4066,16 @@
         }else if (foundProductPvc) {
             tapeWeightPerSquareMeter=(foundProductPvc.totalThickness-15)*1.4+foundProductPvc.filmThickness;
             totalTapeWeight = (tapeWeightPerSquareMeter * area) / 1000;
+        }else if (foundProductYou) {
+            tapeWeightPerSquareMeter = (width+20) * a1 * 0.907 + width * 1 * a2;
+            totalTapeWeight = (tapeWeightPerSquareMeter * length) / 1000000;
+        }else if (foundProductM) {
+            tapeWeightPerSquareMeter = foundProductM.mWeight+foundProductM.consumption+foundProductM.dConsumption+foundProductM.sConsumption+foundProductM.jWeight;
+            totalTapeWeight = (tapeWeightPerSquareMeter * area) / 1000;
+
         }
         else {
-            // 如果没有找到相应的代码，可以使用默认值或继续原计算逻辑
-            tapeWeightPerSquareMeter = (width+20) * a1 * 0.907 + width * 1.05 * a2;
-            totalTapeWeight = (tapeWeightPerSquareMeter * length) / 1000000;}//净重
+            totalTapeWeight = area * a3 * (50/50.4)/1000}
         const weights = {
             "38_2.5": 0.267857142857143,
             "38_3.0": 0.28393274041134,
@@ -3777,16 +4101,23 @@
         const totalWeight = totalTapeWeight + paperTubeWeight;
         const totalWeightfinally = totalTapeWeight + 4;
 
-        const paperTubeVolume = Math.PI * Math.pow((innerDiameter / 2 / 1000 + thicknessSemi / 1000), 2) * (width / 1000);
+        const paperTubeVolume = Math.PI * Math.pow((innerDiameter / 2 / 1000 + thicknessSemi / 1000), 2) * (width / 1000);//纸管体积
         if (thicknessProduct) {
             thickness = thicknessProduct.totalThickness; // 使用对应的总厚度
         }else if(foundProductPvc){
             thickness = foundProductPvc.totalThickness;
+        }else if(foundProductM){
+            thickness = foundProductM.totalThickness;
         }
-        const tapeVolume = area * (thickness / 1000000);
+        const tapeVolume = area * (thickness / 1000000);//胶带体积
         const totalVolume = paperTubeVolume + tapeVolume;
-        const motherRollDiameter = Math.sqrt(totalVolume * 1000 / (width * Math.PI)) * 2;
-        const overallVolume = Math.pow(motherRollDiameter, 2) * (width / 1000);
+        const motherRollDiameter = Math.sqrt(totalVolume * 1000 / (width * Math.PI)) * 2;//母卷直径
+        let overallVolume;
+        if(foundProductM){
+            overallVolume =Math.PI * Math.pow((motherRollDiameter / 2 ), 2) * (width / 1000);
+        }else {
+            overallVolume = Math.pow(motherRollDiameter, 2) * (width / 1000);
+        }
         document.getElementById('resultsSemi').textContent = `单卷毛重(kg): ${totalWeightfinally.toFixed(2)} `;
         document.getElementById('volumeSemi').textContent = `单卷体积(m³): ${(overallVolume).toFixed(2)} `;
         document.getElementById('grossWeightSemi').textContent = `单卷净重(kg): ${(totalTapeWeight).toFixed(2)} `;
@@ -3838,10 +4169,13 @@
             item.newModel === code ||
             item.originalCode === code
         );
+        const foundProductM = productDataM.find(item =>
+            item.model === code
+        );
         const foundProductGG = productDataGg.find(item =>
             item.model === code
         );
-        if (!thickness&&!thicknessProduct&&!foundProductPvc&&!foundProductCRM&&!foundProductGG) {
+        if (!thickness&&!thicknessProduct&&!foundProductPvc&&!foundProductCRM&&!foundProductGG&&!foundProductM) {
             document.getElementById('grossWeightFinished').textContent = '总净重(kg): ';
             document.getElementById('resultsFinished').textContent = '总毛重(kg): ';
             document.getElementById('volumeFinished').textContent = '总体积(m³): ';
@@ -3862,8 +4196,11 @@
             document.getElementById('tapeWeightPerSquareMeter1Finished').value = foundProductCRM.totalThickness;
         }else if (foundProductGG){
             document.getElementById('tapeWeightPerSquareMeter1Finished').value = foundProductGG.totalThickness;
-        }else{
-        document.getElementById('tapeWeightPerSquareMeter1Finished').value = thickness;} // 将厚度填入输入框
+        }else if (foundProductM){
+            document.getElementById('tapeWeightPerSquareMeter1Finished').value = foundProductM.totalThickness;
+        }
+        else{
+            document.getElementById('tapeWeightPerSquareMeter1Finished').value = thickness;} // 将厚度填入输入框
 
         const width = parseFloat(document.getElementById('widthFinished').value);
         const length = parseFloat(document.getElementById('lengthFinished').value);
@@ -3882,7 +4219,7 @@
         if (selectedProductType === 'nakedRandomPVC') {
             packingQuantity = packingQuantityPvc;
         } else {
-        // 计算装箱数
+            // 计算装箱数
             packingQuantity = lengthCargo * widthCargo * heightCargo;
             document.getElementById('packingQuantity').value = packingQuantity;
         }
@@ -3891,8 +4228,16 @@
             item.newModel === code ||
             item.originalCode === code
         );
+        const foundProductYou = productDataYou.find(item =>
+            item.model === code ||
+            item.newModel === code ||
+            item.originalCode === code
+        );
+        // const foundProductM = productDataM.find(item =>
+        //     item.model === code
+        // );
         const area = (width * length) / 1000; // 转换为平方米
-        const { a1, a2 } = getThicknessByCode(code); // 获取 filmThickness 和 glueThickness
+        const { a1, a2, a3 } = getThicknessByCode(code); // 获取 filmThickness 和 glueThickness
         let totalTapeWeight,tapeWeightPerSquareMeter;
         if (foundProduct) {
             tapeWeightPerSquareMeter = foundProduct.totalThickness;
@@ -3905,10 +4250,17 @@
             totalTapeWeight = (foundProductCRM.totalThickness * area*0.92) / 1000;
         }else if (foundProductGG){
             totalTapeWeight = foundProductGG.filmThickness*area/1000;
-        }else {
+        }else if (foundProductYou) {
+            tapeWeightPerSquareMeter = a1 * 0.907 + a2;
+            totalTapeWeight = (tapeWeightPerSquareMeter * area) / 1000;
+        }else if (foundProductM) {
+            tapeWeightPerSquareMeter = foundProductM.mWeight+foundProductM.consumption+foundProductM.dConsumption+foundProductM.sConsumption+foundProductM.jWeight;
+            totalTapeWeight = (tapeWeightPerSquareMeter * area) / 1000;
+        }
+        else {
             // 如果没有找到相应的代码，可以使用默认值或继续原计算逻辑
-            tapeWeightPerSquareMeter = a1 * 0.907 + 1.05 * a2;
-            totalTapeWeight = (tapeWeightPerSquareMeter * area) / 1000;}
+            tapeWeightPerSquareMeter = (a3-1)*(50/50.4);
+            totalTapeWeight = tapeWeightPerSquareMeter*area/1000;}
         // const buJiWeight ={
         //     "152.4_15": 6.346153846153850,
         //     "25_2.0": 0.119866071428571,
