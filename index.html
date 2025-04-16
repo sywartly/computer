@@ -3944,7 +3944,7 @@
         }else if(matchedProductGg!== undefined){
             thicknessInput.value = matchedProductGg.totalThickness;
         }else if(matchedProductM!== undefined){
-            thicknessInput.value = matchedProductM.totalThickness;
+            thicknessInput.value = matchedProductM.totalThickness*0.875;
         }
         else {
             thicknessInput.value = ''; // 无法找到对应厚度时清空
@@ -4114,7 +4114,7 @@
         }else if(foundProductGg){
             document.getElementById('tapeWeightPerSquareMeter1Semi').value = foundProductGg.totalThickness;
         }else if(foundProductM){
-            document.getElementById('tapeWeightPerSquareMeter1Semi').value = foundProductM.totalThickness;
+            document.getElementById('tapeWeightPerSquareMeter1Semi').value = foundProductM.totalThickness*0.875;
         }
         else {
             document.getElementById('tapeWeightPerSquareMeter1Semi').value = thickness;} // 将厚度填入输入框
@@ -4188,7 +4188,7 @@
         }else if(foundProductPvc){
             thickness = foundProductPvc.totalThickness;
         }else if(foundProductM){
-            thickness = foundProductM.totalThickness;
+            thickness = foundProductM.totalThickness*0.875;
         }
         const tapeVolume = area * (thickness / 1000000);//胶带体积
         const totalVolume = paperTubeVolume + tapeVolume;
@@ -4278,7 +4278,7 @@
         }else if (foundProductGG){
             document.getElementById('tapeWeightPerSquareMeter1Finished').value = foundProductGG.totalThickness;
         }else if (foundProductM){
-            document.getElementById('tapeWeightPerSquareMeter1Finished').value = foundProductM.totalThickness;
+            document.getElementById('tapeWeightPerSquareMeter1Finished').value = foundProductM.totalThickness*0.875;
         }
         else{
             document.getElementById('tapeWeightPerSquareMeter1Finished').value = thickness;} // 将厚度填入输入框
