@@ -348,7 +348,7 @@
     <ul style="list-style-type: none; padding-left: 0; margin: 0;">
         <li>
             <a href="#" onclick="toggleForms('semiFinished')" style="color: #cef; padding: 10px; cursor: pointer;">
-                <i class="fa fa-tape" style="margin-right: 8px;"></i>OPP/布基/PVC/缠绕膜/广告耗材/美纹纸
+                <i class="fa fa-tape" style="margin-right: 8px;"></i>OPP/布基/PVC/缠绕膜/广告耗材/美纹纸/地毯双面胶
             </a>
             <ul style="list-style-type: none; padding-left: 20px; margin: 0;">
                 <li>
@@ -3161,6 +3161,49 @@
         { model: "DNB300-3", newModel: "DD3010", originalCode: "D430", totalThickness: 300 },
         { model: "DPB300-25", newModel: "/", originalCode: "/", totalThickness: 300 }
     ];
+    const productDataDt = [
+        { model: "SD1802", newModel: "SD1802", originalCode: "", filmThickness: 274.90, totalThickness: 180 },
+        { model: "SD2893", newModel: "SD2893", originalCode: "SDB280-zk1", filmThickness: 369.90, totalThickness: 280 },
+        { model: "SD2491", newModel: "SD2491", originalCode: "SDB240-zs3", filmThickness: 339.90, totalThickness: 240 },
+        { model: "SD1591", newModel: "SD1591", originalCode: "SD1590", filmThickness: 244.90, totalThickness: 150 },
+        { model: "SD3091", newModel: "SD3091", originalCode: "SFB300-zv1", filmThickness: 391.70, totalThickness: 300 },
+        { model: "SD2894", newModel: "SD2894", originalCode: "SLB280-zd2", filmThickness: 378.05, totalThickness: 280 },
+        { model: "SD2991", newModel: "SD2991", originalCode: "SFB290-za2", filmThickness: 376.70, totalThickness: 290 },
+        { model: "SD3002", newModel: "SD3002", originalCode: "", filmThickness: 348.10, totalThickness: 300 },
+        { model: "SD1590", newModel: "SD1590", originalCode: "", filmThickness: 244.90, totalThickness: 150 },
+        { model: "SD2006", newModel: "SD2006", originalCode: "", filmThickness: 296.25, totalThickness: 200 },
+        { model: "SD1703", newModel: "SD1703", originalCode: "", filmThickness: 239.25, totalThickness: 170 },
+        { model: "SFB310-b", newModel: "SD3101", originalCode: "S203-4", filmThickness: 407.10, totalThickness: 310 },
+        { model: "SGB300-r", newModel: "SD3001", originalCode: "S210", filmThickness: 376.45, totalThickness: 300 },
+        { model: "SCB170-f", newModel: "SD1701", originalCode: "S201", filmThickness: 266.25, totalThickness: 170 },
+        { model: "SCB240-f", newModel: "SD2401", originalCode: "S201-1", filmThickness: 331.25, totalThickness: 240 },
+        { model: "SDB220-b", newModel: "SD2201", originalCode: "S202", filmThickness: 321.25, totalThickness: 220 },
+        { model: "SDB330-b", newModel: "SD3102", originalCode: "S202-2", filmThickness: 431.25, totalThickness: 330 },
+        { model: "SDB280-b", newModel: "SD2802", originalCode: "S202-3", filmThickness: 369.90, totalThickness: 280 },
+        { model: "SDB250-b", newModel: "SD2501", originalCode: "S235", filmThickness: 349.90, totalThickness: 250 },
+        { model: "SFB280-b", newModel: "SD2801", originalCode: "S203", filmThickness: 376.70, totalThickness: 280 },
+        { model: "SFB200-x", newModel: "SD2002", originalCode: "", filmThickness: 301.70, totalThickness: 200 },
+        { model: "SFB420-b", newModel: "SD4201", originalCode: "S204", filmThickness: 506.30, totalThickness: 420 },
+        { model: "SFB280-b7", newModel: "SD2803", originalCode: "S203-7", filmThickness: 378.05, totalThickness: 280 },
+        { model: "SCB170-f13", newModel: "SD1702", originalCode: "S241", filmThickness: 239.25, totalThickness: 170 },
+        { model: "SFB280-b13", newModel: "SD2804", originalCode: "S238", filmThickness: 349.70, totalThickness: 280 },
+        { model: "SDB280-b13", newModel: "SD2805", originalCode: "S238-1", filmThickness: 344.25, totalThickness: 280 },
+        { model: "SDB330-b13", newModel: "SD3104", originalCode: "S233-1", filmThickness: 402.90, totalThickness: 330 },
+        { model: "SCB240-f13", newModel: "SD2402", originalCode: "S224", filmThickness: 302.90, totalThickness: 240 },
+        { model: "SDB220-b13", newModel: "SD2202", originalCode: "S222", filmThickness: 292.90, totalThickness: 220 },
+        { model: "SDB250-b13", newModel: "SD2502", originalCode: "S235-1", filmThickness: 322.90, totalThickness: 250 },
+        { model: "SCB170-za6", newModel: "SD1790", originalCode: "", filmThickness: 237.90, totalThickness: 170 },
+        { model: "SLB280-zd2", newModel: "SD2890", originalCode: "S238-3", filmThickness: 378.05, totalThickness: 280 },
+        { model: "SDB240-zs3", newModel: "SD2490", originalCode: "S202-5", filmThickness: 339.90, totalThickness: 240 },
+        { model: "SDB280-zk1", newModel: "SD2891", originalCode: "S202-6", filmThickness: 369.90, totalThickness: 280 },
+        { model: "SFB300-zv1", newModel: "SD3090", originalCode: "S203-3", filmThickness: 391.70, totalThickness: 300 },
+        { model: "SFB290-za2", newModel: "SD2990", originalCode: "S203-2", filmThickness: 376.70, totalThickness: 290 },
+        { model: "SFB200-x13", newModel: "SD2003", originalCode: "", filmThickness: 274.70, totalThickness: 200 },
+        { model: "SCB200-f13", newModel: "SD2004", originalCode: "", filmThickness: 267.90, totalThickness: 200 },
+        { model: "SDB180-b13", newModel: "SD1801", originalCode: "", filmThickness: 254.25, totalThickness: 180 },
+        { model: "SDB200-b13", newModel: "SD2005", originalCode: "", filmThickness: 272.90, totalThickness: 200 }
+    ];
+
     const productData = [
         // { model: "BC4290", newModel: "BC4290", originalCode: "", totalThickness: 42, filmThickness: 24, glueThickness: 18 },
         { model: "BC4513", newModel: "BC4513", originalCode: "", totalThickness: 45, filmThickness: 25, glueThickness: 20 },
@@ -3835,8 +3878,30 @@
                 };
                 optionsList.appendChild(li);
             });
+            const additionalDtCodes = productDataDt.flatMap(item => {
+                return [
+                    { text: item.model, code: item.model },
+                    { text: item.newModel, code: item.newModel },
+                    { text: item.originalCode, code: item.originalCode }
+                ];
+            }).filter(({ text }) => text.toLowerCase().includes(filter));
 
-            optionsList.style.display = matchedCodes.length > 0 || additionalCodes.length > 0 || additionalPvcCodes.length > 0 ||additionalCrmCodes.length > 0 || additionalGgCodes.length > 0 ? 'block' : 'none'|| additionalMCodes.length > 0 ? 'block' : 'none'; // 显示或隐藏下拉选项
+            additionalDtCodes.forEach(({ text, code }) => {
+                const li = document.createElement('li');
+                li.textContent = text;
+                li.onclick = () => {
+                    input.value = code; // 设置输入框的值
+                    updateThickness(formType); // 更新厚度
+                    optionsList.style.display = 'none'; // 隐藏下拉选项
+                    if (formType === 'semiFinished') {
+                        calculateSemi();
+                    } else {
+                        calculateFinished();
+                    }
+                };
+                optionsList.appendChild(li);
+            });
+            optionsList.style.display = matchedCodes.length > 0 || additionalCodes.length > 0 || additionalPvcCodes.length > 0 ||additionalCrmCodes.length > 0 || additionalGgCodes.length > 0 ? 'block' : 'none'|| additionalMCodes.length > 0 ? 'block' : 'none'|| additionalDtCodes.length > 0 ? 'block' : 'none'; // 显示或隐藏下拉选项
         } else {
             optionsList.style.display = 'none'; // 输入框为空时隐藏下拉选项
         }
@@ -3925,7 +3990,9 @@
         const matchedProductM = productDataM.find(item =>
             item.model === code
         );
-
+        const matchedProductDt = productDataDt.find(item =>
+            item.model === code || item.newModel === code || item.originalCode === code
+        );
         if (matchedProduct !== undefined) {
             thicknessInput.value = matchedProduct.totalThickness;
         }else if (thickness !== undefined){
@@ -3938,6 +4005,8 @@
             thicknessInput.value = matchedProductGg.totalThickness;
         }else if(matchedProductM!== undefined){
             thicknessInput.value = matchedProductM.totalThickness*0.875;
+        }else if(matchedProductDt!== undefined){
+            thicknessInput.value = matchedProductDt.totalThickness;
         }
         else {
             thicknessInput.value = ''; // 无法找到对应厚度时清空
@@ -3988,7 +4057,7 @@
             packingQuantityContainer.style.display = 'none';
             totalBoxesContainer.type = 'hidden';
             totalBoxesContainer.style.display = 'block';
-            navbar.textContent = '当前计算模式: 半成品计算(OPP，布基，PVC，美纹纸)';
+            navbar.textContent = '当前计算模式: 半成品计算(OPP，布基，PVC，美纹纸，地毯双面胶)';
         } else if (activeForm === 'finished' ||
             (activeForm === '' && (selectedValue === 'finished' || selectedValue === 'oppBag'|| selectedValue === 'pvc'|| selectedValue === '夹卡'|| selectedValue === 'multipleBoxes'|| selectedValue === 'nakedRandomPVC'|| selectedValue === 'nakedRandomCRM'||selectedValue === 'nakedRandomGG'))) {
             semiFinishedForm.style.display = 'none';
@@ -3999,7 +4068,7 @@
             totalBoxesContainer.style.display = 'block';
             fabricSemiFinishedForm.style.display = 'none';
             fabricFinishedForm.style.display = 'none';
-            navbar.textContent = '当前计算模式: 成品计算(OPP，布基，PVC，美纹纸)';
+            navbar.textContent = '当前计算模式: 成品计算(OPP，布基，PVC，美纹纸，地毯双面胶)';
         } else if (activeForm === 'fabricSemiFinished' || (activeForm === '' && selectedValue === 'fabricSemiFinished')) {
             semiFinishedForm.style.display = 'none';
             finishedForm.style.display = 'none';
@@ -4084,6 +4153,11 @@
             item.newModel === code ||
             item.originalCode === code
         );
+        const foundProductDt = productDataDt.find(item =>
+            item.model === code ||
+            item.newModel === code ||
+            item.originalCode === code
+        );
         const foundProductCrm = productDataCrm.find(item =>
             item.model === code || item.newModel === code || item.originalCode === code
         );
@@ -4093,7 +4167,7 @@
         const foundProductM = productDataM.find(item =>
             item.model === code
         );
-        if (!thickness&&!thicknessProduct&&!foundProductPvc&&!foundProductM) {
+        if (!thickness&&!thicknessProduct&&!foundProductPvc&&!foundProductM&&!foundProductDt) {
             document.getElementById('grossWeightSemi').textContent = '单卷净重(kg): ';
             document.getElementById('resultsSemi').textContent = '单卷毛重(kg): ';
             document.getElementById('volumeSemi').textContent = '单卷体积(m³): ';
@@ -4110,6 +4184,8 @@
             document.getElementById('tapeWeightPerSquareMeter1Semi').value = foundProductGg.totalThickness;
         }else if(foundProductM){
             document.getElementById('tapeWeightPerSquareMeter1Semi').value = foundProductM.totalThickness*0.875;
+        }else if(foundProductDt){
+            document.getElementById('tapeWeightPerSquareMeter1Semi').value = foundProductDt.totalThickness;
         }
         else {
             document.getElementById('tapeWeightPerSquareMeter1Semi').value = thickness;} // 将厚度填入输入框
@@ -4148,7 +4224,9 @@
         }else if (foundProductM) {
             tapeWeightPerSquareMeter = foundProductM.mWeight+foundProductM.consumption+foundProductM.dConsumption+foundProductM.sConsumption+foundProductM.jWeight;
             totalTapeWeight = (tapeWeightPerSquareMeter * area) / 1000;
-
+        }else if (foundProductDt) {
+            tapeWeightPerSquareMeter = foundProductDt.filmThickness;
+            totalTapeWeight = (tapeWeightPerSquareMeter * area) / 1000;
         }
         else {
             totalTapeWeight = area * a3 * (50/50.4)/1000}
@@ -4184,6 +4262,8 @@
             thickness = foundProductPvc.totalThickness;
         }else if(foundProductM){
             thickness = foundProductM.totalThickness*0.875;
+        }else if(foundProductDt){
+            thickness = foundProductDt.totalThickness;
         }
         const tapeVolume = area * (thickness / 1000000);//胶带体积
         const totalVolume = paperTubeVolume + tapeVolume;
@@ -4233,6 +4313,11 @@
             return;
         }
         const thickness = codeThicknessMap[code]; // 根据输入代码获取厚度
+        const foundProductDt = productDataDt.find(item =>
+            item.model === code ||
+            item.newModel === code ||
+            item.originalCode === code
+        );
         // 如果厚度无效，清空结果并返回
         const thicknessProduct = productDataBuJi.find(item =>
             item.model === code || item.newModel === code || item.originalCode === code
@@ -4253,7 +4338,7 @@
         const foundProductGG = productDataGg.find(item =>
             item.model === code
         );
-        if (!thickness&&!thicknessProduct&&!foundProductPvc&&!foundProductCRM&&!foundProductGG&&!foundProductM) {
+        if (!thickness&&!thicknessProduct&&!foundProductPvc&&!foundProductCRM&&!foundProductGG&&!foundProductM&&!foundProductDt) {
             document.getElementById('grossWeightFinished').textContent = '总净重(kg): ';
             document.getElementById('resultsFinished').textContent = '总毛重(kg): ';
             document.getElementById('volumeFinished').textContent = '总体积(m³): ';
@@ -4277,6 +4362,9 @@
             document.getElementById('tapeWeightPerSquareMeter1Finished').value = foundProductGG.totalThickness;
         }else if (foundProductM){
             document.getElementById('tapeWeightPerSquareMeter1Finished').value = foundProductM.totalThickness*0.875;
+        }
+        else if (foundProductDt){
+            document.getElementById('tapeWeightPerSquareMeter1Finished').value = foundProductDt.totalThickness;
         }
         else{
             document.getElementById('tapeWeightPerSquareMeter1Finished').value = thickness;} // 将厚度填入输入框
@@ -4334,6 +4422,9 @@
             totalTapeWeight = (tapeWeightPerSquareMeter * area) / 1000;
         }else if (foundProductM) {
             tapeWeightPerSquareMeter = foundProductM.mWeight+foundProductM.consumption+foundProductM.dConsumption+foundProductM.sConsumption+foundProductM.jWeight;
+            totalTapeWeight = (tapeWeightPerSquareMeter * area) / 1000;
+        }else if (foundProductDt) {
+            tapeWeightPerSquareMeter = foundProductDt.filmThickness;
             totalTapeWeight = (tapeWeightPerSquareMeter * area) / 1000;
         }
         else {
